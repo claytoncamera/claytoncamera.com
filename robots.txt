@@ -1,0 +1,7 @@
+# claytoncamera.com — crawl policy
+# Personal entity site. Everything here is public and meant to be indexed.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://claytoncamera.com/sitemap.xml
