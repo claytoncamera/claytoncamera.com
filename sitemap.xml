@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   claytoncamera.com sitemap
-  Single-page personal entity site. Add a <url> entry per new page.
+  Personal entity site + the /writing/ byline surface.
+  Add a <url> entry per new page — tests/seo-scan.sh fails if a public
+  page is missing here, or if a page listed here does not exist on disk.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://claytoncamera.com/</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://claytoncamera.com/writing/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://claytoncamera.com/writing/dry-run-caught-25-fake-reply-threads/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://claytoncamera.com/writing/entity-seo-when-your-name-is-a-thing/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

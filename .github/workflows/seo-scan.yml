@@ -1,0 +1,19 @@
+name: SEO scan
+
+# The entity wiring on this domain (one Person @id, sitemap/robots agreement,
+# no orphan posts, no second page claiming the bare name) is invisible in the
+# rendered page and rots silently. This makes rot a red check.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  seo-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run tests/seo-scan.sh
+        run: bash tests/seo-scan.sh

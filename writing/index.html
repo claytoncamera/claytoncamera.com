@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ================================================================
+       /writing/ — the byline surface.
+
+       Purpose is entity reinforcement, not traffic: every post is
+       authored by the ONE Person @id owned by the homepage
+       (https://claytoncamera.com/#person), which is what merges these
+       pages, the homepage and the other domains into a single person
+       in the knowledge graph.
+
+       Rules for new posts:
+         · author + publisher REFERENCE the Person @id, never redefine it
+         · add a <url> entry to /sitemap.xml (tests/seo-scan.sh fails otherwise)
+         · add the post to the list below — an unlinked post is an orphan
+         · self-canonical, and the slug never changes after publication
+       ================================================================ -->
+
+  <title>Writing — Clayton Camera</title>
+  <meta name="description" content="Technical write-ups by Clayton Camera, a technical founder in Orlando, Florida — entity SEO, AI agents in production, and what actually breaks when you ship live systems solo.">
+  <link rel="canonical" href="https://claytoncamera.com/writing/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Writing — Clayton Camera">
+  <meta property="og:description" content="Technical write-ups by Clayton Camera — entity SEO, AI agents in production, and what breaks when you ship live systems solo.">
+  <meta property="og:url" content="https://claytoncamera.com/writing/">
+  <meta property="og:site_name" content="Clayton Camera">
+  <meta property="og:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Writing — Clayton Camera">
+  <meta name="twitter:description" content="Technical write-ups by Clayton Camera — entity SEO, AI agents in production, and shipping live systems solo.">
+  <meta name="twitter:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta name="theme-color" content="#08080d">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Blog",
+        "@id": "https://claytoncamera.com/writing/#blog",
+        "url": "https://claytoncamera.com/writing/",
+        "name": "Writing — Clayton Camera",
+        "description": "Technical write-ups on entity SEO, AI agents in production, and shipping live systems solo.",
+        "inLanguage": "en-US",
+        "isPartOf": { "@id": "https://claytoncamera.com/#website" },
+        "author": { "@id": "https://claytoncamera.com/#person" },
+        "publisher": { "@id": "https://claytoncamera.com/#person" },
+        "blogPost": [
+          {
+            "@type": "BlogPosting",
+            "@id": "https://claytoncamera.com/writing/dry-run-caught-25-fake-reply-threads/#article",
+            "headline": "The dry run that caught 25 fabricated reply threads",
+            "url": "https://claytoncamera.com/writing/dry-run-caught-25-fake-reply-threads/",
+            "datePublished": "2026-07-27",
+            "author": { "@id": "https://claytoncamera.com/#person" }
+          },
+          {
+            "@type": "BlogPosting",
+            "@id": "https://claytoncamera.com/writing/entity-seo-when-your-name-is-a-thing/#article",
+            "headline": "When your name is also a thing: entity SEO for an ambiguous name",
+            "url": "https://claytoncamera.com/writing/entity-seo-when-your-name-is-a-thing/",
+            "datePublished": "2026-07-27",
+            "author": { "@id": "https://claytoncamera.com/#person" }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Clayton Camera", "item": "https://claytoncamera.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Writing" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/article.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <header class="top-header">
+    <div class="wrap">
+      <a class="logo" href="/">Clayton Camera</a>
+      <nav><ul class="nav-links">
+        <li><a href="/writing/">Writing</a></li>
+        <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
+        <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="crumbs"><a href="/">Home</a> → Writing</p>
+
+    <section class="listing">
+      <p class="eyebrow">Writing</p>
+      <h1>Notes from shipping live systems</h1>
+      <p>Write-ups by <a href="/" rel="author">Clayton Camera</a> — a technical founder in Orlando, Florida. Things that broke in production, what the fix actually was, and the numbers as they are rather than as they’d read best.</p>
+
+      <ul class="post-list">
+        <li>
+          <p class="meta">27 July 2026 · AI agents in production</p>
+          <h2><a href="/writing/dry-run-caught-25-fake-reply-threads/">The dry run that caught 25 fabricated reply threads</a></h2>
+          <p>An agent-drafted outreach queue was about to open 25 cold emails with a <code>Re:</code> — to companies that had never been contacted. What a dry run has to print to catch a well-formed lie, and the pagination default that nearly hid the whole batch.</p>
+        </li>
+        <li>
+          <p class="meta">27 July 2026 · Technical SEO</p>
+          <h2><a href="/writing/entity-seo-when-your-name-is-a-thing/">When your name is also a thing: entity SEO for an ambiguous name</a></h2>
+          <p>My surname is a device and three US towns are called Clayton, so the query returns municipal webcams. That’s an entity-disambiguation problem, not a keyword problem — the playbook, the two traps, and the CI guard that keeps it from rotting.</p>
+        </li>
+      </ul>
+
+      <div class="author-card">
+        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida">
+        <div>
+          <h3><a href="/" rel="author">Clayton Camera</a></h3>
+          <p>Technical founder and software engineer in Orlando, Florida. Builds AI systems, autonomous agents, and full-stack software — including <a href="https://www.orbitroute.ai">OrbitRoute</a> and <a href="https://knockfiber.com">KnockFiber</a>. Client work at <a href="https://workwithclayton.com/">workwithclayton.com</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="/">Clayton Camera</a> · <a href="/writing/">Writing</a> · <a href="https://workwithclayton.com/">Work with Clayton</a> · <a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> · <a href="https://github.com/claytoncamera" rel="me">GitHub</a></p>
+    <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+  </footer>
+</body>
+</html>

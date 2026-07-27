@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>When your name is also a thing: entity SEO for an ambiguous name — Clayton Camera</title>
+  <meta name="description" content="My surname is a device and three US towns are called Clayton, so the query “Clayton Camera” returns municipal webcams. Here is the entity-disambiguation playbook I used instead of keyword SEO: one Person @id, a page whose title, H1 and URL are the name, and a CI guard that fails if the entity ever splits.">
+  <link rel="canonical" href="https://claytoncamera.com/writing/entity-seo-when-your-name-is-a-thing/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="When your name is also a thing: entity SEO for an ambiguous name">
+  <meta property="og:description" content="The query “Clayton Camera” returns traffic cameras in three towns named Clayton. That is an entity-disambiguation problem, not a keyword problem — and it has a different fix.">
+  <meta property="og:url" content="https://claytoncamera.com/writing/entity-seo-when-your-name-is-a-thing/">
+  <meta property="og:site_name" content="Clayton Camera">
+  <meta property="og:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta property="article:author" content="Clayton Camera">
+  <meta property="article:published_time" content="2026-07-27">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="When your name is also a thing: entity SEO for an ambiguous name">
+  <meta name="twitter:description" content="Entity disambiguation beats keyword SEO when your name collides with a common noun. The playbook, the traps, and the CI guard.">
+  <meta name="twitter:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta name="theme-color" content="#08080d">
+
+  <!-- author references the canonical Person @id owned by the homepage.
+       Never redefine it here — see the note in /index.html. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://claytoncamera.com/writing/entity-seo-when-your-name-is-a-thing/#article",
+        "headline": "When your name is also a thing: entity SEO for an ambiguous name",
+        "description": "The query “Clayton Camera” returns municipal webcams in three towns named Clayton. That is an entity-disambiguation problem, not a keyword problem — and it has a different fix.",
+        "url": "https://claytoncamera.com/writing/entity-seo-when-your-name-is-a-thing/",
+        "mainEntityOfPage": "https://claytoncamera.com/writing/entity-seo-when-your-name-is-a-thing/",
+        "datePublished": "2026-07-27",
+        "dateModified": "2026-07-27",
+        "inLanguage": "en-US",
+        "image": "https://claytoncamera.com/assets/clayton-camera.jpg",
+        "author": { "@id": "https://claytoncamera.com/#person" },
+        "publisher": { "@id": "https://claytoncamera.com/#person" },
+        "isPartOf": { "@id": "https://claytoncamera.com/writing/#blog" },
+        "keywords": "entity SEO, schema.org, JSON-LD, knowledge graph, name disambiguation, technical SEO"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Clayton Camera", "item": "https://claytoncamera.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Writing", "item": "https://claytoncamera.com/writing/" },
+          { "@type": "ListItem", "position": 3, "name": "When your name is also a thing" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/article.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <header class="top-header">
+    <div class="wrap">
+      <a class="logo" href="/">Clayton Camera</a>
+      <nav><ul class="nav-links">
+        <li><a href="/writing/">Writing</a></li>
+        <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
+        <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="crumbs"><a href="/">Home</a> → <a href="/writing/">Writing</a> → When your name is also a thing</p>
+
+    <article>
+      <p class="eyebrow">Technical SEO</p>
+      <h1>When your name is also a thing: entity SEO for an ambiguous name</h1>
+      <p class="byline">By <a href="/" rel="author">Clayton Camera</a> · 27 July 2026 · 8 min read</p>
+
+      <p class="lede">My surname is a device. Three towns in the United States are called Clayton, and every one of them points a traffic camera at a bridge. So the exact query <strong>“Clayton Camera”</strong> returns municipal webcams, a YouTube channel of webcam feeds, and a photography business — and, until recently, nothing of mine at all.</p>
+
+      <p>That sounds like a keyword problem. It isn’t. It’s an <strong>entity disambiguation</strong> problem, and the two have completely different fixes. Writing more content aimed at the query is wasted motion. Here’s what I did instead, what it cost, and what I’d tell anyone whose name collides with a common noun, a place, or a product.</p>
+
+      <h2>First: measure it signed out</h2>
+
+      <p>I started from a false premise — “only my LinkedIn shows up when you search my name.” It doesn’t. I saw LinkedIn because I was signed in to Google with a profile that has visited it a hundred times. That’s <strong>personalization, not rank</strong>.</p>
+
+      <p>Non-personalized, the first page for the bare two-word query was: traffic and weather cams for Clayton NY, Clayton NC and Clayton CA; a “Cameras of Clayton NY” channel; a photography company; two unrelated photographers. Zero results for me — not even the LinkedIn profile I thought was ranking.</p>
+
+      <div class="callout">
+        <span class="callout-label">Rule 1</span>
+        <p>Never audit your own name signed in. Your search history is precisely the data that makes a bad SERP look fine. Incognito, signed out, or it didn’t happen.</p>
+      </div>
+
+      <p>The measurement also found the one thing that <em>was</em> working: a small client-work site of mine ranked <strong>#1</strong> for the query “Clayton Camera LoopholeMaxing OrbitRoute founder.” Google already had that page and understood it. That was the beachhead — and, tellingly, it was the property with the least SEO wiring on it: no canonical, no structured data, no sitemap, and a <code>robots.txt</code> advertising a sitemap that returned 404.</p>
+
+      <h2>The reframe</h2>
+
+      <p>Content volume does not beat three towns’ worth of municipal infrastructure for a generic two-word phrase. What beats it — or at least gets you onto the board next to it — is making search engines build an <strong>entity</strong>: a single node in the knowledge graph that means “Clayton Camera, the person in Orlando,” distinct from “camera, in Clayton.”</p>
+
+      <p>An entity is convincing when many independent sources say the same thing about the same identifier. So the work splits in two: give the entity one unambiguous identifier, then attach everything you own to that exact identifier — identically.</p>
+
+      <h2>The playbook</h2>
+
+      <h3>1. One page whose title, H1, URL and canonical <em>are</em> the name</h3>
+
+      <p>Not “About me.” Not “Home.” The literal string. I registered the exact-match domain, which is the strongest version of this — but a <code>/your-name/</code> path on a domain you already own does the same job. Give it <code>ProfilePage</code> + <code>Person</code> markup and make the person the <code>mainEntity</code> of the page.</p>
+
+      <h3>2. One Person <code>@id</code>, referenced everywhere and redefined nowhere</h3>
+
+      <p>This is the load-bearing part. Every property I own emits a Person node using the same identifier:</p>
+
+<pre><code>{
+  "@type": "Person",
+  "@id": "https://claytoncamera.com/#person",
+  "name": "Clayton Camera",
+  "url": "https://claytoncamera.com/"
+}</code></pre>
+
+      <p>My company sites reference it as the <code>founder</code> of their <code>Organization</code> node. My portfolio site references it as the page’s subject. The entity page itself defines it in full — image, address, <code>knowsAbout</code>, <code>sameAs</code>, <code>worksFor</code>.</p>
+
+      <p>Mint a <em>second</em> identifier on any one of those sites and you have not added a signal — you have split one person into two half-evidenced strangers. This is the single easiest way to undo months of work, and it happens by accident, usually during a redesign.</p>
+
+      <h3>3. Say out loud what you are not</h3>
+
+      <p>Schema.org has a property for exactly this situation and almost nobody uses it:</p>
+
+<pre><code>"disambiguatingDescription": "Clayton Camera is a person — a technical
+  founder and software engineer based in Orlando, Florida. Not to be
+  confused with traffic or weather cameras in the towns of Clayton,
+  New York; Clayton, North Carolina; or Clayton, California."</code></pre>
+
+      <p>It reads blunt because it is. It is also the most on-the-nose anti-collision signal available, and it’s the sentence an AI answer engine can quote when someone asks who you are.</p>
+
+      <h3>4. Make every rendered link real, not just marked up</h3>
+
+      <p><code>sameAs</code> is a claim. A crawler follows <em>links</em>. So each profile in <code>sameAs</code> also appears as a visible <code>rel="me"</code> anchor on the page, and each company site carries a visible “Founded by [name]” link back to the entity page — not only the JSON-LD. Schema without a rendered counterpart is a weaker version of the same statement.</p>
+
+      <h3>5. Off-site, use one string</h3>
+
+      <p>Same name spelling, same role line, same city string, same link, on every profile you claim. Consistency is not an aesthetic preference here — matching strings across independent sources is literally the mechanism by which mentions get merged into one entity. Varying your job title across five profiles is how you stay five weak entities.</p>
+
+      <h2>Two traps I hit</h2>
+
+      <p><strong>Moving the identifier.</strong> I built the hub at <code>/clayton-camera/</code> on an existing domain, then bought the exact-match domain hours later and moved it. That was only free because the page had never been indexed. The move touched four files across three repositories <strong>in a single commit</strong> — if two of them disagree even briefly, the crawl that lands in that window sees two entities. The old path became a stub with a cross-domain canonical and <code>noindex,follow</code>, never a live duplicate.</p>
+
+      <p><strong>A single public resolver is not the truth.</strong> After the DNS change, one major public resolver served the old parking IPs long enough that I briefly concluded the records had reverted. The authoritative nameservers and a second public resolver had been correct the whole time. Check authoritative <em>and</em> a second resolver before you diagnose a regression — and prove the origin independently of DNS entirely:</p>
+
+<pre><code>curl --resolve example.com:443:185.199.108.153 https://example.com/</code></pre>
+
+      <p>That separates “my host is misconfigured” from “DNS hasn’t propagated,” which look identical from a browser.</p>
+
+      <h2>Then guard it in CI</h2>
+
+      <p>Entity work rots silently. Nothing errors when a sitemap goes stale, a private path leaks into it, or a well-meaning refactor mints a second Person id. So the assertions live in a shell script that runs with the tests:</p>
+
+      <ul>
+        <li><code>robots.txt</code> and <code>sitemap.xml</code> agree, and every public page is listed</li>
+        <li><strong>zero</strong> disallowed/internal paths appear in the sitemap</li>
+        <li>the entity page’s title starts with the name, its <code>h1</code> <em>is</em> the name, it self-canonicalises</li>
+        <li><code>disambiguatingDescription</code> is present</li>
+        <li><strong>exactly one</strong> Person <code>@id</code> exists tree-wide</li>
+        <li>every JSON-LD block parses</li>
+        <li>the redirect stub is still a stub and has not been re-expanded into a competing page</li>
+      </ul>
+
+      <p>That last one matters more than it looks. Two pages competing for the same name query is exactly the problem canonicalisation exists to prevent, and “let’s bring that old page back” is a reasonable-sounding request six months from now.</p>
+
+      <h2>Honest expectations</h2>
+
+      <p>Displacing three towns’ worth of public webcams for a bare two-word generic query is a <strong>3–6 month</strong> job and may never fully clear. Anyone selling you a two-week version of this outcome is selling you the signed-in SERP.</p>
+
+      <p>The realistic — and more valuable — win is different: <strong>the name plus almost any qualifier</strong> (founder, Orlando, the company names, developer) returns your properties, and the person entity resolves correctly in AI answer engines, which increasingly matter more than position 4 on a page nobody scrolls.</p>
+
+      <p>The on-site work took an afternoon. From there the rate limiter is off-site citations — profiles you claim, work you publish under the byline, people who link to you because you made something worth linking to. There is no schema property for that part.</p>
+
+      <div class="callout">
+        <span class="callout-label">The one-line version</span>
+        <p>Before doing any keyword work on a personal-name query, check whether the name is an <strong>ambiguous entity</strong>. If it collides with a common noun, a place, or a product class, no amount of content wins — one canonical <code>@id</code>, a page that <em>is</em> the name, an explicit statement of what you are not, and consistent citations off-site are the whole fix.</p>
+      </div>
+
+      <div class="author-card">
+        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida">
+        <div>
+          <h3><a href="/" rel="author">Clayton Camera</a></h3>
+          <p>Technical founder and software engineer in Orlando, Florida. Builds AI systems, autonomous agents, and full-stack software — including <a href="https://www.orbitroute.ai">OrbitRoute</a> and <a href="https://knockfiber.com">KnockFiber</a>. Client work at <a href="https://workwithclayton.com/">workwithclayton.com</a>.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="/">Clayton Camera</a> · <a href="/writing/">Writing</a> · <a href="https://workwithclayton.com/">Work with Clayton</a> · <a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> · <a href="https://github.com/claytoncamera" rel="me">GitHub</a></p>
+    <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+  </footer>
+</body>
+</html>

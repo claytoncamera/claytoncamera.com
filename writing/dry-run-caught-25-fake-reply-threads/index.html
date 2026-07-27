@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The dry run that caught 25 fabricated reply threads — Clayton Camera</title>
+  <meta name="description" content="My outreach engine was about to send 25 cold emails with a “Re:” prefix to companies that had never been contacted — a fake conversation, to the best names on the list. What the dry run had to print to catch it, and the API pagination default that nearly hid the whole batch.">
+  <link rel="canonical" href="https://claytoncamera.com/writing/dry-run-caught-25-fake-reply-threads/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The dry run that caught 25 fabricated reply threads">
+  <meta property="og:description" content="An agent-drafted outreach queue was about to open 25 cold emails with “Re:” — to companies with zero prior contact. The catch, the fix, and the honest result.">
+  <meta property="og:url" content="https://claytoncamera.com/writing/dry-run-caught-25-fake-reply-threads/">
+  <meta property="og:site_name" content="Clayton Camera">
+  <meta property="og:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta property="article:author" content="Clayton Camera">
+  <meta property="article:published_time" content="2026-07-27">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The dry run that caught 25 fabricated reply threads">
+  <meta name="twitter:description" content="What a dry run has to print to be worth running — from an outreach engine that nearly faked a conversation with every top prospect.">
+  <meta name="twitter:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta name="theme-color" content="#08080d">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://claytoncamera.com/writing/dry-run-caught-25-fake-reply-threads/#article",
+        "headline": "The dry run that caught 25 fabricated reply threads",
+        "description": "An agent-drafted outreach queue was about to send 25 cold emails carrying a “Re:” prefix to companies with zero prior contact. What the dry run had to print to catch it.",
+        "url": "https://claytoncamera.com/writing/dry-run-caught-25-fake-reply-threads/",
+        "mainEntityOfPage": "https://claytoncamera.com/writing/dry-run-caught-25-fake-reply-threads/",
+        "datePublished": "2026-07-27",
+        "dateModified": "2026-07-27",
+        "inLanguage": "en-US",
+        "image": "https://claytoncamera.com/assets/clayton-camera.jpg",
+        "author": { "@id": "https://claytoncamera.com/#person" },
+        "publisher": { "@id": "https://claytoncamera.com/#person" },
+        "isPartOf": { "@id": "https://claytoncamera.com/writing/#blog" },
+        "keywords": "AI agents, cold outreach, dry run, LLM safety, deliverability, engineering practice"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Clayton Camera", "item": "https://claytoncamera.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Writing", "item": "https://claytoncamera.com/writing/" },
+          { "@type": "ListItem", "position": 3, "name": "The dry run that caught 25 fabricated reply threads" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/article.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <header class="top-header">
+    <div class="wrap">
+      <a class="logo" href="/">Clayton Camera</a>
+      <nav><ul class="nav-links">
+        <li><a href="/writing/">Writing</a></li>
+        <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
+        <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="crumbs"><a href="/">Home</a> → <a href="/writing/">Writing</a> → The dry run that caught 25 fabricated reply threads</p>
+
+    <article>
+      <p class="eyebrow">AI agents in production</p>
+      <h1>The dry run that caught 25 fabricated reply threads</h1>
+      <p class="byline">By <a href="/" rel="author">Clayton Camera</a> · 27 July 2026 · 6 min read</p>
+
+      <p class="lede">I run the outreach for my orbital-compute product myself, with an agent drafting and a human approving. Last night the approved queue was 43 emails. Twenty-five of them were about to arrive in the inboxes of the best prospects on my list with a <code>Re:</code> in front of the subject line — a reply to a conversation that had never happened.</p>
+
+      <p>They didn’t send. Not because of a clever guardrail, but because the dry run printed the one field I wouldn’t have thought to look at. Here’s the defect, why it was worse than a bug, and the two habits that caught it.</p>
+
+      <h2>What the queue actually contained</h2>
+
+      <p>The engine drafts two kinds of message: a first touch, and a follow-up on an existing thread. Follow-ups get the <code>Re:</code> prefix and quote the prior message, which is correct — it’s a real thread. First touches must not.</p>
+
+      <p>The mapping was inverted almost perfectly:</p>
+
+      <table>
+        <thead>
+          <tr><th>Bucket</th><th>Count</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>Re:</code> + <strong>never contacted</strong></td><td><strong>25</strong> ← fabricated thread</td></tr>
+          <tr><td><code>Re:</code> + prior contact</td><td>1</td></tr>
+          <tr><td>no <code>Re:</code> + prior contact</td><td>17 — and the subject was byte-identical to the original send, 17 / 17</td></tr>
+        </tbody>
+      </table>
+
+      <p>So the genuine follow-ups looked like duplicate first touches, and the genuine first touches looked like replies. The prefix was being derived from the draft <em>template</em> rather than from a lookup against contact history — a distinction that is invisible until the two disagree.</p>
+
+      <div class="callout">
+        <span class="callout-label">Why this is worse than a bug</span>
+        <p>A crash costs you a send. A fake <code>Re:</code> costs you the relationship: the first thing a stranger learns about you is that you’re willing to pretend they already replied. On a list where every name is a company I want to work with for years, that is the most expensive possible failure, and it would have looked like a successful campaign in every metric I track — 43 delivered, deliverability fine, nothing red.</p>
+      </div>
+
+      <h2>The pagination default that nearly hid it</h2>
+
+      <p>Before that, a smaller trap. The drafts endpoint returned 20 rows. The queue actually held 47. The endpoint has an undocumented default page size, and the count I’d been quoting myself for days — “46 pending” — was a number I had assembled from a capped list plus an assumption.</p>
+
+      <p>The complete view came from a different endpoint entirely. Four of the 47 turned out to be internal test drafts addressed to my own domain, one of them titled “(internal test)”. They would have gone out with the batch.</p>
+
+      <div class="callout">
+        <span class="callout-label">Habit 1</span>
+        <p>If a list endpoint can be capped, never treat its length as a count. Ask for the total explicitly, or read from the view that is defined as complete. A capped list doesn’t error — it just quietly agrees with you.</p>
+      </div>
+
+      <h2>What a dry run has to print</h2>
+
+      <p>My dry run used to print what most dry runs print: how many messages, to how many recipients, under what cap. All three numbers were correct. All three were useless here.</p>
+
+      <p>What caught it was printing, per message, the fields that would <em>embarrass me if they were wrong</em> — the literal rendered subject line next to the recipient’s contact history — and then cross-tabulating the two. The defect was invisible in aggregate and obvious in a 2×2.</p>
+
+      <div class="callout">
+        <span class="callout-label">Habit 2</span>
+        <p>A dry run that only reports volume is a progress bar. Make it render the exact artifact the recipient will see, beside the state that artifact claims about them, and group by the combination. Then assert on it: <em>zero messages may claim a prior thread with a contact whose history is empty.</em></p>
+      </div>
+
+      <p>That assertion now runs before dispatch, not as advice in a runbook. The prefix is derived from a contact-history lookup rather than from the template type, and internal domains are excluded from any batch by rule instead of by my noticing them.</p>
+
+      <h2>The honest result</h2>
+
+      <p>After the repair, all 43 dispatched: <strong>42 delivered, 1 bounce</strong> — a 2.3% bounce rate, down from 20% on the previous wave after a list-hygiene pass. Total outreach to date, 63 emails.</p>
+
+      <p><strong>Replies so far: zero.</strong> A first-touch null on cold outreach is normal and I’d be lying to say otherwise; the follow-up wave is where the real signal is. I’m publishing the number now, before it’s flattering, because the alternative — quietly waiting until there’s a good one to report — is the exact habit that makes founder metrics worthless.</p>
+
+      <h2>The transferable part</h2>
+
+      <p>Agent-drafted communication fails in a specific, uncomfortable way: the output is <em>well-formed</em>. It’s not garbled, it doesn’t throw, it passes every schema check. It just asserts something about the world that isn’t true — a thread that never existed, a prior call, a shared connection. Type systems and status codes don’t see that class of error at all, and neither do dashboards.</p>
+
+      <p>The only defense I’ve found that reliably works is to make the dry run <strong>show you the claim, next to the evidence for the claim</strong>, before anything leaves the building. Volume counts will tell you the machine is running. They will never tell you it’s honest.</p>
+
+      <div class="author-card">
+        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida">
+        <div>
+          <h3><a href="/" rel="author">Clayton Camera</a></h3>
+          <p>Technical founder and software engineer in Orlando, Florida. Builds AI systems, autonomous agents, and full-stack software — including <a href="https://www.orbitroute.ai">OrbitRoute</a> and <a href="https://knockfiber.com">KnockFiber</a>. Client work at <a href="https://workwithclayton.com/">workwithclayton.com</a>.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="/">Clayton Camera</a> · <a href="/writing/">Writing</a> · <a href="https://workwithclayton.com/">Work with Clayton</a> · <a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> · <a href="https://github.com/claytoncamera" rel="me">GitHub</a></p>
+    <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+  </footer>
+</body>
+</html>
