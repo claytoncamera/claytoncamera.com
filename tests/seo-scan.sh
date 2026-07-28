@@ -30,6 +30,8 @@ DOMAIN="https://claytoncamera.com"
 PAGES=(
   "/"
   "/writing/"
+  "/writing/four-times-my-verification-lied/"
+  "/writing/30-agents-audit-my-own-network/"
   "/writing/dry-run-caught-25-fake-reply-threads/"
   "/writing/entity-seo-when-your-name-is-a-thing/"
 )
@@ -182,11 +184,32 @@ PY
 # Every citation must use the host the target itself canonicalises to —
 # matching strings across sources is the merge mechanism. knockfiber.com
 # 308-redirects to www.knockfiber.com, which is its own declared canonical.
-if grep -rn 'https://knockfiber\.com' --include="*.html" . | grep -v "^./.git" | grep -q .; then
-  fail "cites https://knockfiber.com — that 308s to https://www.knockfiber.com/ (its own canonical)"
-else
-  ok "KnockFiber cited at its canonical www host"
-fi
+#
+# Code blocks are EXCLUDED. A post that documents this exact bug quotes the
+# broken markup verbatim, and a guard that cannot tell a citation from a
+# quotation of a bad citation goes red on correct work — the same failure the
+# Person-definition check had before it was rewritten to parse. Strip <pre> and
+# <code> spans, then check what is left: the actual citations.
+python3 - <<'PY' || FAILED=1
+import pathlib, re, sys
+
+BARE = re.compile(r'https://knockfiber\.com')
+STRIP = re.compile(r'<pre\b.*?</pre>|<code\b.*?</code>', re.S | re.I)
+
+offenders = []
+for f in sorted(pathlib.Path('.').rglob('*.html')):
+    if '.git' in f.parts:
+        continue
+    prose = STRIP.sub('', f.read_text(encoding='utf-8', errors='replace'))
+    if BARE.search(prose):
+        offenders.append(str(f))
+
+if offenders:
+    print(f"  ❌ {offenders} cite https://knockfiber.com outside a code block — "
+          f"that 308s to https://www.knockfiber.com/ (its own canonical)")
+    sys.exit(1)
+print("  ✅ KnockFiber cited at its canonical www host (quotations in code blocks ignored)")
+PY
 
 # ── 4. the homepage IS the name ─────────────────────────────────────────
 echo "-- entity page shape --"

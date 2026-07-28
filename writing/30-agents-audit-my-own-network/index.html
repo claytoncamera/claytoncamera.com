@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>I pointed 30 agents at my own websites and told them to prove each other wrong — Clayton Camera</title>
+  <meta name="description" content="I own six domains. Across three working sessions I wired five of them into a single person entity: one @id, defined once, referenced by every property, so that search engines resolve one person instead of six unrelated mentions. That build was agent-driven too, one file at a time, and at the end of ">
+  <link rel="canonical" href="https://claytoncamera.com/writing/30-agents-audit-my-own-network/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="I pointed 30 agents at my own websites and told them to prove each other wrong">
+  <meta property="og:description" content="I own six domains. Across three working sessions I wired five of them into a single person entity: one @id, defined once, referenced by every property, so that search engines resolve one person instead of six unrelated mentions. That build was agent-driven too, one file at a time, and at the end of ">
+  <meta property="og:url" content="https://claytoncamera.com/writing/30-agents-audit-my-own-network/">
+  <meta property="og:site_name" content="Clayton Camera">
+  <meta property="og:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta property="article:author" content="Clayton Camera">
+  <meta property="article:published_time" content="2026-07-28">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="I pointed 30 agents at my own websites and told them to prove each other wrong">
+  <meta name="twitter:description" content="I own six domains. Across three working sessions I wired five of them into a single person entity: one @id, defined once, referenced by every property, so that search engines resolve one person instead of six unrelated mentions. That build was agent-driven too, one file at a time, and at the end of ">
+  <meta name="twitter:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta name="theme-color" content="#08080d">
+
+  <!-- author + publisher REFERENCE the canonical Person @id owned by the
+       homepage. Never redefine it here — see the note in /index.html. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://claytoncamera.com/writing/30-agents-audit-my-own-network/#article",
+      "headline": "I pointed 30 agents at my own websites and told them to prove each other wrong",
+      "description": "I own six domains. Across three working sessions I wired five of them into a single person entity: one @id, defined once, referenced by every property, so that search engines resolve one person instead of six unrelated mentions. That build was agent-driven too, one file at a time, and at the end of ",
+      "url": "https://claytoncamera.com/writing/30-agents-audit-my-own-network/",
+      "mainEntityOfPage": "https://claytoncamera.com/writing/30-agents-audit-my-own-network/",
+      "datePublished": "2026-07-28",
+      "dateModified": "2026-07-28",
+      "inLanguage": "en-US",
+      "image": "https://claytoncamera.com/assets/clayton-camera.jpg",
+      "author": {
+        "@id": "https://claytoncamera.com/#person"
+      },
+      "publisher": {
+        "@id": "https://claytoncamera.com/#person"
+      },
+      "isPartOf": {
+        "@id": "https://claytoncamera.com/writing/#blog"
+      },
+      "keywords": "AI agents, adversarial review, schema.org, JSON-LD, entity SEO, structured data, technical SEO"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Clayton Camera",
+          "item": "https://claytoncamera.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Writing",
+          "item": "https://claytoncamera.com/writing/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "30 agents, told to prove each other wrong"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/article.css">
+</head>
+<body>
+  <div class="bg-grid"></div>
+
+  <header class="top-header">
+    <div class="wrap">
+      <a class="logo" href="/">Clayton Camera</a>
+      <nav><ul class="nav-links">
+        <li><a href="/writing/">Writing</a></li>
+        <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
+        <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="crumbs"><a href="/">Home</a> → <a href="/writing/">Writing</a> → 30 agents, told to prove each other wrong</p>
+
+    <article>
+      <p class="eyebrow">AI agents in production</p>
+      <h1>I pointed 30 agents at my own websites and told them to prove each other wrong</h1>
+      <p class="byline">By <a href="/" rel="author">Clayton Camera</a> · 28 July 2026 · 8 min read</p>
+
+      <p class="lede">I own six domains. Across three working sessions I wired five of them into a single person entity: one <code>@id</code>, defined once, referenced by every property, so that search engines resolve one person instead of six unrelated mentions. That build was agent-driven too, one file at a time, and at the end of it I had a passing test suite and a good feeling.</p>
+
+      <p>The good feeling is the part that should worry you. So instead of shipping and moving on, I ran an audit: one agent per property, each one required to quote verbatim evidence from a live fetch, then up to four more agents per property whose stated default was <em>this finding is wrong, refute it</em>. Thirty agents, 1.48 million subagent tokens.</p>
+
+      <p>Twenty-four findings. <strong>Fourteen confirmed. Ten killed by the verifiers</strong>, including two of my own suspicions.</p>
+
+      <p>The kill rate is the point, and I will get to it. First, the finding that justified the whole exercise.</p>
+
+      <h2>My markup said the companies founded me</h2>
+
+      <p>The definition site — the one page in the network that defines the person node rather than referencing it — carried this:</p>
+
+<pre><code>{
+  &quot;@type&quot;: &quot;Person&quot;,
+  &quot;@id&quot;: &quot;https://claytoncamera.com/#person&quot;,
+  &quot;founder&quot;: [
+    { &quot;@type&quot;: &quot;Organization&quot;, &quot;name&quot;: &quot;OrbitRoute&quot;, &quot;url&quot;: &quot;https://www.orbitroute.ai&quot; },
+    { &quot;@type&quot;: &quot;Organization&quot;, &quot;name&quot;: &quot;KnockFiber&quot;, &quot;url&quot;: &quot;https://knockfiber.com&quot; },
+    { &quot;@type&quot;: &quot;Organization&quot;, &quot;name&quot;: &quot;Loopholemaxing&quot;, &quot;url&quot;: &quot;https://loopholemaxing.com/&quot; }
+  ]
+}</code></pre>
+
+      <p>Read that in English and it is obviously correct. This person, founder of these companies.</p>
+
+      <p>In schema.org it is backwards. <code>founder</code> is declared on <strong>Organization</strong>, not on Person. The subject of the property is the company; the value is the human. Putting it on a Person node does not mean "founded these" — it asserts that those organizations founded <em>me</em>. There is no Person-side inverse of <code>founder</code>. The relation can only be stated from the company outward.</p>
+
+      <p>Every validator passes it. The JSON parses, the types resolve, nothing anywhere goes red. It is simply the inverse of what I meant, published on the one page in the network that carries the most weight.</p>
+
+      <blockquote><strong>The rule I took from this</strong> Valid JSON stating the inverse of what you mean is worse than invalid JSON. Invalid markup gets ignored. Well-formed markup that lies gets believed.</blockquote>
+
+      <p>There was a second defect stacked on the first, and it was the more expensive one. The companies in that array were <strong>anonymous nodes</strong> — no <code>@id</code>. A <code>url</code> is not an identifier; two of my other sites already publish those companies with real identifiers, each with <code>founder</code> pointing back at the person. So the definition site was minting a second, duplicate copy of every company instead of closing the loop with the ones that already existed. Two half-evidenced companies where there should have been one.</p>
+
+      <p>The fix was three <code>Organization</code> nodes carrying the <code>@id</code>s the sibling sites publish — one of which I had to go create on the sibling first, because the id I was about to reference did not exist yet — each with <code>founder</code> pointing at the person. <code>worksFor</code> stayed on the Person node, because that one genuinely is Person-domain. I checked rather than assumed, which is the only new habit this finding actually bought me:</p>
+
+<pre><code>curl -s https://schema.org/version/latest/schemaorg-current-https.jsonld \
+| jq -r &#x27;.[&quot;@graph&quot;][]
+         | select(.[&quot;@id&quot;]==&quot;schema:founder&quot;)
+         | &quot;domain=\(.[&quot;schema:domainIncludes&quot;])  range=\(.[&quot;schema:rangeIncludes&quot;])&quot;&#x27;</code></pre>
+
+      <p>Which returns, today:</p>
+
+<pre><code>domain={&quot;@id&quot;:&quot;schema:Organization&quot;}  range=[{&quot;@id&quot;:&quot;schema:Organization&quot;},{&quot;@id&quot;:&quot;schema:Person&quot;}]</code></pre>
+
+      <p>Domain is the type the property is allowed to sit on. Range is what may go in it. Swap <code>founder</code> for whatever property you are about to ship and read the domain before you write the node. A few that catch people, all checked the same way: <code>worksFor</code> is Person-domain, <code>employee</code> is Organization-domain, <code>alumniOf</code> is Person-domain. The vocabulary file is about 1.5 MB, so save it locally if you are checking more than one.</p>
+
+      <h2>The guard that went red because I wrote about schema</h2>
+
+      <p>Each repo in the network has a CI guard asserting that exactly one Person <em>definition</em> exists in its own tree, with everything else being a reference. That invariant is the load-bearing one — mint a second definition during a redesign and you have split one person into two strangers.</p>
+
+      <p>The original check counted files containing the string <code>disambiguatingDescription</code>, on the reasoning that only a real definition would carry it.</p>
+
+      <p>It went red the first time I published a post about structured data. The post quotes <code>disambiguatingDescription</code> inside a code block, as a teaching example. The guard could not tell an entity from prose about an entity, and it was never going to be able to, because it was reading the file as text.</p>
+
+      <p>The rewrite walks every <code>application/ld+json</code> block, parses it, and classifies each Person node as a definition (carries identity payload — <code>givenName</code>, <code>image</code>, <code>sameAs</code>, <code>address</code>) or a reference (<code>@id</code> and name). Definitions must number exactly one. References are expected everywhere.</p>
+
+      <blockquote><strong>Rule</strong> Parse the structured data. Do not pattern-match the file. Any guard that greps for a schema property breaks on the day you write about that property, and it breaks in the direction that trains you to ignore it.</blockquote>
+
+      <p>Then negative-test it. Every guard I built in that session was verified by injecting the violation it claims to catch — a second definition, a stray identifier, a duplicate company — and confirming the suite goes red. A guard that has never failed is a guard you have not tested.</p>
+
+      <h2>Two more that had been sitting in plain sight</h2>
+
+      <p><strong>118 pages contributing nothing.</strong> One of my sites had 118 published pages and not one machine-readable statement connecting any of them to me: no person reference, no organization with an identifier, no <code>rel=author</code> anywhere. Worse, its canonical tags and <code>og:url</code> on the homepage and a dozen other pages pointed at the non-www host — and the non-www host <code>301</code>s to www. Those pages were each declaring a preferred URL that immediately redirects somewhere else.</p>
+
+      <p>The reason it was never fixed is structural: four separate generators write their own <code>&lt;head&gt;</code>, and six pages emit no head JSON-LD at all. Fixing it in the head meant four edits and would still have missed pages. It went in the shared footer partial instead — JSON-LD is valid anywhere in the document — and covered all 118 in one edit.</p>
+
+      <p><strong>A citation that needed a redirect hop.</strong> Every reference to one of my companies used the bare apex host. That host <code>308</code>s to <code>www</code>, which is the company's own declared canonical. Entity merging works by matching strings across independent sources. A string that has to redirect to reach the canonical is not the same string. Four files, one guard, done. <code>curl -I</code> a URL before you put it in <code>sameAs</code> and use whatever it lands on.</p>
+
+      <h2>What the verifiers killed</h2>
+
+      <p>This is the part I would skip if I were selling you something.</p>
+
+      <table>
+        <thead><tr><th>Finding proposed</th><th>Verdict</th></tr></thead>
+        <tbody><tr><td>130 job pages use an anonymous hiring organization for a partner company</td><td><strong>Rejected</strong> — that partner is not my company; an anonymous node is correct here</td></tr><tr><td>Articles bylined to the organization rather than the person</td><td><strong>Rejected</strong> — valid schema</td></tr><tr><td>Marketing pages lack a person signal on all 13 pages</td><td><strong>Rejected</strong> — a person signal on two pages is the right surface, not thirteen</td></tr><tr><td>The <code>sameAs</code> array mixes organization identities with the person's</td><td><strong>Rejected</strong> — false; each target does identify the person</td></tr><tr><td>The FAQ block is a disconnected root node</td><td><strong>Rejected</strong> — false</td></tr></tbody>
+      </table>
+
+      <p>Ten of twenty-four, on that pattern. Two of them were things I had personally suspected before the audit started and would have "fixed" on instinct.</p>
+
+      <p>The most useful one was a partial. An agent flagged that the same person definition was stated in full in three of my repos — same facts, stated three times. The verifier came back and said this is valid schema, not a defect: consistent duplicates merge fine. The verifier was right. I made the change anyway, and the argument changed with it — not "this is invalid" but "this is a drift hazard." It had already cost me once: when a profile URL changed, updating it took a synchronized three-repo commit, and every future citation would have needed the same lockstep. Now the definition lives in one file and a new citation is a one-file edit.</p>
+
+      <p>A finding that survives on a different argument than the one it was born with is worth more than one nobody challenged. You only get that if something is assigned to attack it.</p>
+
+      <h2>Why the adversarial half is not optional</h2>
+
+      <p>Agents pointed at your own work will find things. They will always find things. That is the failure mode, not the feature — a list of twenty-four confident, well-written, evidence-quoting findings is indistinguishable from a list of fourteen real ones plus ten expensive distractions, and you cannot tell which is which by reading them. They all sound the same.</p>
+
+      <p>Two constraints made the output usable. Every finding had to quote verbatim evidence from a live fetch, so nothing could be asserted from a plausible guess about how the page probably looked. And every finding had to survive an agent whose job was to kill it. The first constraint stops fabrication. The second stops the thing agents do that is much harder to notice: producing real, correct, entirely unimportant work in volume, and calling it an audit.</p>
+
+      <h2>The honest part</h2>
+
+      <p>None of this proves the SEO works.</p>
+
+      <p>Everything above is on-site work — markup, canonicals, sitemaps, guards. On-site work is the part you fully control, which is exactly why it is tempting to keep doing it. The rate limiter is off-site: citations on properties I do not own. No agent can create those. The entity domain was registered on 24 July. Search Console reported one indexed page and a single search click on the 27th; it does not rank for its own name query, and a public <code>site:</code> query returns nothing yet. At that age that is the expected reading rather than a failure.</p>
+
+      <p>What I can verify is narrower and I will state it as narrowly as it deserves. I swept the live network afterward: nine pages, the same person identifier on every one, zero stray identifiers. The markup now says what I meant instead of its inverse. Five repositories each have a test that goes red if their part of that changes.</p>
+
+      <p>Whether any of it moves a search result is a question for the three-to-six-month mark, and I will publish that number whichever way it goes.</p>
+
+      <blockquote><strong>The one-line version</strong> If you point agents at your own work, point a second set at the first set's conclusions and pay them to be wrong. Twenty-four findings that nobody challenged and fourteen that survived a refutation attempt read identically on the page. Only one of them is worth acting on.</blockquote>
+
+      <div class="author-card">
+        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida">
+        <div>
+          <h3><a href="/" rel="author">Clayton Camera</a></h3>
+          <p>Technical founder and software engineer in Orlando, Florida. Builds AI systems, autonomous agents, and full-stack software — including <a href="https://www.orbitroute.ai">OrbitRoute</a> and <a href="https://www.knockfiber.com/">KnockFiber</a>. Client work at <a href="https://workwithclayton.com/">workwithclayton.com</a>.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="/">Clayton Camera</a> · <a href="/writing/">Writing</a> · <a href="https://workwithclayton.com/">Work with Clayton</a> · <a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> · <a href="https://github.com/claytoncamera" rel="me">GitHub</a></p>
+    <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+  </footer>
+</body>
+</html>
