@@ -131,7 +131,9 @@
         <p>A dry run that only reports volume is a progress bar. Make it render the exact artifact the recipient will see, beside the state that artifact claims about them, and group by the combination. Then assert on it: <em>zero messages may claim a prior thread with a contact whose history is empty.</em></p>
       </div>
 
-      <p>That assertion now runs before dispatch, not as advice in a runbook. The prefix is derived from a contact-history lookup rather than from the template type, and internal domains are excluded from any batch by rule instead of by my noticing them.</p>
+      <p>What actually shipped is narrower than that, and it is worth being precise about the difference. There is now an <strong>egress check</strong>: at the moment of sending, a subject keeps its <code>Re:</code> only if real threading headers are being attached to that message — and those headers only exist when there is a genuine inbound message from that contact to reference. Otherwise the prefix is stripped and the send is logged as having carried a fake one. It does not block the send. It removes the lie and leaves a record.</p>
+
+      <p>The internal test drafts are still excluded by me noticing them, not by a rule. That gap is open.</p>
 
       <h2>The honest result</h2>
 
@@ -144,6 +146,12 @@
       <p>Agent-drafted communication fails in a specific, uncomfortable way: the output is <em>well-formed</em>. It’s not garbled, it doesn’t throw, it passes every schema check. It just asserts something about the world that isn’t true — a thread that never existed, a prior call, a shared connection. Type systems and status codes don’t see that class of error at all, and neither do dashboards.</p>
 
       <p>The only defense I’ve found that reliably works is to make the dry run <strong>show you the claim, next to the evidence for the claim</strong>, before anything leaves the building. Volume counts will tell you the machine is running. They will never tell you it’s honest.</p>
+
+      <div class="callout">
+        <span class="callout-label">Correction · 28 July 2026</span>
+        <p>An earlier version of this post claimed the repair derived the <code>Re:</code> prefix from a contact-history lookup, that the assertion ran before dispatch, and that internal domains were excluded from batches by rule. I fact-checked the post against the repository the next day and none of those were true as written: what shipped is the egress check described above, it does not block a send, and the internal-domain exclusion is still me noticing. Those three sentences have been replaced with what the code actually does.</p>
+        <p>A post about output that is well-formed and false is a poor place to be well-formed and false. Publishing the correction rather than quietly editing is the only version of this that is worth anything.</p>
+      </div>
 
       <div class="author-card">
         <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida">
