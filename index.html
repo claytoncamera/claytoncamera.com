@@ -108,11 +108,7 @@
           "https://www.thepeptidex.net",
           "https://www.knockfiber.com/"
         ],
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Practically Natty",
-          "url": "https://practicallynatty.com"
-        }
+        "worksFor": { "@id": "https://practicallynatty.com/#organization" }
       },
 
       {
@@ -136,6 +132,14 @@
         "name": "Loopholemaxing",
         "url": "https://loopholemaxing.com/",
         "founder": { "@id": "https://claytoncamera.com/#person" }
+      },
+      {
+        "_comment": "Practically Natty publishes this same @id from a mu-plugin on the storefront, with employee -> #person. NOT founder — Clayton is CTO & Managing Partner there, not the sole founder, and the markup must not claim otherwise.",
+        "@type": "Organization",
+        "@id": "https://practicallynatty.com/#organization",
+        "name": "Practically Natty",
+        "url": "https://practicallynatty.com/",
+        "employee": { "@id": "https://claytoncamera.com/#person" }
       }
     ]
   }
