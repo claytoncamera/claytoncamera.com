@@ -106,18 +106,36 @@
           "https://www.orbitroute.ai",
           "https://practicallynatty.com",
           "https://www.thepeptidex.net",
-          "https://knockfiber.com"
+          "https://www.knockfiber.com/"
         ],
         "worksFor": {
           "@type": "Organization",
           "name": "Practically Natty",
           "url": "https://practicallynatty.com"
-        },
-        "founder": [
-          { "@type": "Organization", "name": "OrbitRoute", "url": "https://www.orbitroute.ai" },
-          { "@type": "Organization", "name": "KnockFiber", "url": "https://knockfiber.com" },
-          { "@type": "Organization", "name": "Loopholemaxing", "url": "https://loopholemaxing.com/" }
-        ]
+        }
+      },
+
+      {
+        "_comment": "founder is Organization-domain in schema.org (domainIncludes: Organization only), so it CANNOT live on the Person node — putting it there asserts the inverse, that OrbitRoute founded Clayton Camera. These @ids are the exact ones the sibling sites publish, so the org↔person loop closes instead of minting duplicate anonymous companies. If a sibling ever changes its #organization id, change it here in the same commit.",
+        "@type": "Organization",
+        "@id": "https://www.orbitroute.ai/#organization",
+        "name": "OrbitRoute",
+        "url": "https://www.orbitroute.ai",
+        "founder": { "@id": "https://claytoncamera.com/#person" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.knockfiber.com/#organization",
+        "name": "KnockFiber",
+        "url": "https://www.knockfiber.com/",
+        "founder": { "@id": "https://claytoncamera.com/#person" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://loopholemaxing.com/#organization",
+        "name": "Loopholemaxing",
+        "url": "https://loopholemaxing.com/",
+        "founder": { "@id": "https://claytoncamera.com/#person" }
       }
     ]
   }
@@ -352,7 +370,7 @@
         </div>
         <div class="venture">
           <div class="meta">Founder · Live</div>
-          <h3><a href="https://knockfiber.com" target="_blank" rel="noopener">KnockFiber</a></h3>
+          <h3><a href="https://www.knockfiber.com/" target="_blank" rel="noopener">KnockFiber</a></h3>
           <p>Recruiting platform for door-to-door fiber sales across multiple partner companies — 117 city pages, 26 state and metro hubs, English and Spanish lanes, with crew, manager, and team tracking.</p>
         </div>
         <div class="venture">

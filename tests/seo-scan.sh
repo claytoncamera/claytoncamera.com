@@ -139,8 +139,54 @@ if strays:
     bad = 1
 else:
     print(f"  ✅ every #person reference uses {PERSON_ID}")
+
+# `founder` is Organization-domain in schema.org (domainIncludes: Organization
+# only). On a Person node it asserts the inverse — that the companies founded
+# HIM — and mints anonymous company nodes that cannot merge with the
+# #organization ids the sibling sites publish. The relation belongs on the
+# Organization, pointing back at the person.
+persons = []
+for f in sorted(pathlib.Path('.').rglob('*.html')):
+    if '.git' in f.parts:
+        continue
+    for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>',
+                            f.read_text(encoding='utf-8', errors='replace'), re.S):
+        try:
+            payload = json.loads(block)
+        except Exception:
+            continue
+
+        def scan(node):
+            if isinstance(node, list):
+                for n in node:
+                    scan(n)
+            elif isinstance(node, dict):
+                t = node.get("@type")
+                t = t if isinstance(t, list) else [t]
+                if "Person" in t and "founder" in node:
+                    persons.append(str(f))
+                for v in node.values():
+                    scan(v)
+        scan(payload)
+
+if persons:
+    print(f"  ❌ Person node carries `founder` in {sorted(set(persons))} — that property is "
+          f"Organization-domain; it reads as 'the company founded the person'")
+    bad = 1
+else:
+    print("  ✅ no Person node misuses `founder` (it lives on the Organization nodes)")
+
 sys.exit(bad)
 PY
+
+# Every citation must use the host the target itself canonicalises to —
+# matching strings across sources is the merge mechanism. knockfiber.com
+# 308-redirects to www.knockfiber.com, which is its own declared canonical.
+if grep -rn 'https://knockfiber\.com' --include="*.html" . | grep -v "^./.git" | grep -q .; then
+  fail "cites https://knockfiber.com — that 308s to https://www.knockfiber.com/ (its own canonical)"
+else
+  ok "KnockFiber cited at its canonical www host"
+fi
 
 # ── 4. the homepage IS the name ─────────────────────────────────────────
 echo "-- entity page shape --"
