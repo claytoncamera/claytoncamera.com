@@ -412,6 +412,14 @@
       .js .nav-links li:last-child { flex: 1; }
       .js .nav-links .nav-cta { display: flex; justify-content: center; }
     }
+    /* Windows High Contrast / forced colours repaints backgrounds to Canvas,
+       which would erase the CSS-drawn menu bars; paint them in ButtonText. */
+    @media (forced-colors: active) {
+      .nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after { forced-color-adjust: none; background: ButtonText; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bars { background: transparent; }
+      /* box-shadow is dropped in forced colours, so mark the current page with an underline */
+      .nav-links a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .venture, .venture:hover { transition: none; transform: none; }

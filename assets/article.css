@@ -129,7 +129,7 @@ blockquote.labelled > strong:first-child { display: block; font-size: 0.78rem; f
 table { width: 100%; border-collapse: separate; border-spacing: 0; margin-bottom: 20px; font-size: 0.92rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
 th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--text-secondary); }
 th { color: var(--text-primary); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; }
-thead th { background: var(--bg-card-2); }
+thead th { background: var(--bg-card-2); vertical-align: bottom; }
 tbody tr:last-child td { border-bottom: 0; }
 td { vertical-align: top; }
 td:first-child { color: var(--text-primary); }
@@ -226,6 +226,14 @@ td code { overflow-wrap: anywhere; }
   article { font-size: 1.0625rem; }
   article .lede { font-size: 1.2rem; }
   article h3 { font-size: 1.2rem; }
+}
+/* Windows High Contrast / forced colours repaints backgrounds to Canvas,
+   which would erase the CSS-drawn menu bars; paint them in ButtonText. */
+@media (forced-colors: active) {
+  .nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after { forced-color-adjust: none; background: ButtonText; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bars { background: transparent; }
+  /* box-shadow is dropped in forced colours, so mark the current page with an underline */
+  .nav-links a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 6px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
