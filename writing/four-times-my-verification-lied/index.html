@@ -21,6 +21,10 @@
   <meta name="twitter:description" content="Everything I shipped in the last five days was verified before I called it done. Four of those verifications were wrong, in the way that is hardest to catch: the check reports success in exactly the dimension you are watching while being wrong in a dimension you are not.">
   <meta name="twitter:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
   <meta name="theme-color" content="#08080d">
+  <link rel="icon" href="/assets/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <script>document.documentElement.className += ' js';</script>
+  <script src="/assets/nav.js" defer></script>
 
   <!-- author + publisher REFERENCE the canonical Person @id owned by the
        homepage. Never redefine it here — see the note in /index.html. -->
@@ -82,21 +86,23 @@
   <link rel="stylesheet" href="/assets/article.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="bg-grid"></div>
 
   <header class="top-header">
     <div class="wrap">
       <a class="logo" href="/">Clayton Camera</a>
-      <nav><ul class="nav-links">
-        <li><a href="/writing/">Writing</a></li>
+      <nav id="primary-nav" aria-label="Primary"><ul class="nav-links">
+        <li><a href="/writing/" aria-current="true">Writing</a></li>
         <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
         <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
       </ul></nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
     </div>
   </header>
 
-  <main class="wrap">
-    <p class="crumbs"><a href="/">Home</a> → <a href="/writing/">Writing</a> → When verification lies</p>
+  <main class="wrap" id="main" tabindex="-1">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">→</span> <a href="/writing/">Writing</a> <span aria-hidden="true">→</span> <span aria-current="page">When verification lies</span></nav>
 
     <article>
       <p class="eyebrow">Engineering practice</p>
@@ -158,7 +164,7 @@
       <p>Put the four next to each other and they are the same failure:</p>
 
       <table>
-        <thead><tr><th>What I watched</th><th>What it reported</th><th>What was actually true</th></tr></thead>
+        <thead><tr><th scope="col">What I watched</th><th scope="col">What it reported</th><th scope="col">What was actually true</th></tr></thead>
         <tbody><tr><td>Homepage HTML after a deploy</td><td>200, unchanged bytes</td><td>I was reading a cached copy</td></tr><tr><td>Draft queue length</td><td>20 rows, no error</td><td>47 rows existed</td></tr><tr><td>The URL on screen</td><td>The new URL, everywhere</td><td>The submit path held the old one</td></tr><tr><td>A <code>grep</code> guard in CI</td><td>Pass</td><td>It could no longer fail</td></tr></tbody>
       </table>
 
@@ -179,18 +185,21 @@
       <p>The through-line is not sophisticated: know which dimension your check actually reads, and make sure it is the dimension you care about. Then feed it a known positive and watch it fire. Everything else — the status code, the byte count, the row count, the exit code — is the machine telling you it is running. It is not telling you it is right.</p>
 
       <div class="author-card">
-        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida">
+        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida" loading="lazy" decoding="async">
         <div>
           <h3><a href="/" rel="author">Clayton Camera</a></h3>
           <p>Technical founder and software engineer in Orlando, Florida. Builds AI systems, autonomous agents, and full-stack software — including <a href="https://www.orbitroute.ai">OrbitRoute</a> and <a href="https://www.knockfiber.com/">KnockFiber</a>. Client work at <a href="https://workwithclayton.com/">workwithclayton.com</a>.</p>
         </div>
       </div>
+
+      <p class="post-end"><a href="/writing/"><span aria-hidden="true">←</span> All writing</a></p>
     </article>
   </main>
 
   <footer class="site-footer">
-    <p><a href="/">Clayton Camera</a> · <a href="/writing/">Writing</a> · <a href="https://workwithclayton.com/">Work with Clayton</a> · <a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> · <a href="https://github.com/claytoncamera" rel="me">GitHub</a></p>
+    <p><span class="fl-i"><a href="/">Clayton Camera</a> ·</span> <span class="fl-i"><a href="/writing/">Writing</a> ·</span> <span class="fl-i"><a href="https://workwithclayton.com/">Work with Clayton</a> ·</span> <span class="fl-i"><a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> ·</span> <span class="fl-i"><a href="https://github.com/claytoncamera" rel="me">GitHub</a></span></p>
     <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+    <a class="to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
 </body>
 </html>
