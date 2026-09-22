@@ -35,6 +35,10 @@
   <meta name="twitter:description" content="Technical write-ups by Clayton Camera — entity SEO, AI agents in production, and shipping live systems solo.">
   <meta name="twitter:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
   <meta name="theme-color" content="#08080d">
+  <link rel="icon" href="/assets/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <script>document.documentElement.className += ' js';</script>
+  <script src="/assets/nav.js" defer></script>
 
   <script type="application/ld+json">
   {
@@ -102,21 +106,23 @@
   <link rel="stylesheet" href="/assets/article.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="bg-grid"></div>
 
   <header class="top-header">
     <div class="wrap">
       <a class="logo" href="/">Clayton Camera</a>
-      <nav><ul class="nav-links">
-        <li><a href="/writing/">Writing</a></li>
+      <nav id="primary-nav" aria-label="Primary"><ul class="nav-links">
+        <li><a href="/writing/" aria-current="page">Writing</a></li>
         <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
         <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
       </ul></nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
     </div>
   </header>
 
-  <main class="wrap">
-    <p class="crumbs"><a href="/">Home</a> → Writing</p>
+  <main class="wrap" id="main" tabindex="-1">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">→</span> <span aria-current="page">Writing</span></nav>
 
     <section class="listing">
       <p class="eyebrow">Writing</p>
@@ -127,12 +133,12 @@
         <li>
           <p class="meta">28 July 2026 · Engineering practice</p>
           <h2><a href="/writing/four-times-my-verification-lied/">Four times my own verification lied to me in five days</a></h2>
-          <p>Everything I shipped in the last five days was verified before I called it done. Four of those verifications were wrong, in the way that is hardest to catch: the check reports success in exactly the dimension you are watching while being wrong in a dimension y</p>
+          <p>Everything I shipped in the last five days was verified before I called it done. Four of those verifications were wrong, in the way that is hardest to catch: the check reports success in exactly the dimension you are watching while being wrong in a dimension you…</p>
         </li>
         <li>
           <p class="meta">28 July 2026 · AI agents in production</p>
           <h2><a href="/writing/30-agents-audit-my-own-network/">I pointed 30 agents at my own websites and told them to prove each other wrong</a></h2>
-          <p>I own six domains. Across three working sessions I wired five of them into a single person entity: one @id, defined once, referenced by every property, so that search engines resolve one person instead of six unrelated mentions. That build was agent-driven too</p>
+          <p>I own six domains. Across three working sessions I wired five of them into a single person entity: one @id, defined once, referenced by every property, so that search engines resolve one person instead of six unrelated mentions. That build was agent-driven too…</p>
         </li>
         <li>
           <p class="meta">27 July 2026 · AI agents in production</p>
@@ -147,7 +153,7 @@
       </ul>
 
       <div class="author-card">
-        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida">
+        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida" loading="lazy" decoding="async">
         <div>
           <h3><a href="/" rel="author">Clayton Camera</a></h3>
           <p>Technical founder and software engineer in Orlando, Florida. Builds AI systems, autonomous agents, and full-stack software — including <a href="https://www.orbitroute.ai">OrbitRoute</a> and <a href="https://www.knockfiber.com/">KnockFiber</a>. Client work at <a href="https://workwithclayton.com/">workwithclayton.com</a>.</p>
@@ -157,8 +163,9 @@
   </main>
 
   <footer class="site-footer">
-    <p><a href="/">Clayton Camera</a> · <a href="/writing/">Writing</a> · <a href="https://workwithclayton.com/">Work with Clayton</a> · <a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> · <a href="https://github.com/claytoncamera" rel="me">GitHub</a></p>
+    <p><span class="fl-i"><a href="/">Clayton Camera</a> ·</span> <span class="fl-i"><a href="/writing/">Writing</a> ·</span> <span class="fl-i"><a href="https://workwithclayton.com/">Work with Clayton</a> ·</span> <span class="fl-i"><a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> ·</span> <span class="fl-i"><a href="https://github.com/claytoncamera" rel="me">GitHub</a></span></p>
     <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+    <a class="to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
 </body>
 </html>

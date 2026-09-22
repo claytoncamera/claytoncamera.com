@@ -55,6 +55,18 @@ def inline(text: str) -> str:
     return text
 
 
+def excerpt(text: str, limit: int) -> str:
+    """Card excerpt: at most `limit` characters, cut at a word boundary, with
+    an ellipsis when anything was cut. Never ends mid-word."""
+    text = text.strip()
+    if len(text) <= limit:
+        return text
+    cut = text[:limit]
+    if re.match(r"[\w'’]", text[limit]) and re.search(r"\s", cut):  # limit falls inside a word
+        cut = cut.rsplit(None, 1)[0]
+    return cut.rstrip(" ,;:.—–-") + "…"
+
+
 def md_to_html(md: str) -> tuple[str, str, str]:
     """Return (title, lede_text, body_html)."""
     lines = md.replace("\r\n", "\n").split("\n")
@@ -127,7 +139,7 @@ def md_to_html(md: str) -> tuple[str, str, str]:
             while i < len(lines) and lines[i].strip().startswith("|"):
                 rows.append([c.strip() for c in lines[i].strip().strip("|").split("|")])
                 i += 1
-            th = "".join(f"<th>{inline(c)}</th>" for c in header)
+            th = "".join(f"<th scope=\"col\">{inline(c)}</th>" for c in header)
             trs = "".join(
                 "<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>" for r in rows
             )
@@ -141,7 +153,10 @@ def md_to_html(md: str) -> tuple[str, str, str]:
             while i < len(lines) and lines[i].strip().startswith("> "):
                 quote.append(lines[i].strip()[2:])
                 i += 1
-            out.append(f"      <blockquote>{inline(' '.join(quote))}</blockquote>")
+            text = ' '.join(quote)
+            # A quote that opens with a bold phrase gets the label treatment.
+            cls = ' class="labelled"' if re.match(r"\*\*[^*]+\*\*", text) else ""
+            out.append(f"      <blockquote{cls}>{inline(text)}</blockquote>")
             continue
 
         m = re.match(r"^(#{2,3})\s+(.*)$", stripped)
@@ -200,6 +215,10 @@ TEMPLATE = """<!DOCTYPE html>
   <meta name="twitter:description" content="{desc}">
   <meta name="twitter:image" content="{base}/assets/clayton-camera.jpg">
   <meta name="theme-color" content="#08080d">
+  <link rel="icon" href="/assets/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <script>document.documentElement.className += ' js';</script>
+  <script src="/assets/nav.js" defer></script>
 
   <!-- author + publisher REFERENCE the canonical Person @id owned by the
        homepage. Never redefine it here — see the note in /index.html. -->
@@ -213,21 +232,23 @@ TEMPLATE = """<!DOCTYPE html>
   <link rel="stylesheet" href="/assets/article.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="bg-grid"></div>
 
   <header class="top-header">
     <div class="wrap">
       <a class="logo" href="/">Clayton Camera</a>
-      <nav><ul class="nav-links">
-        <li><a href="/writing/">Writing</a></li>
+      <nav id="primary-nav" aria-label="Primary"><ul class="nav-links">
+        <li><a href="/writing/" aria-current="true">Writing</a></li>
         <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
         <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
       </ul></nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
     </div>
   </header>
 
-  <main class="wrap">
-    <p class="crumbs"><a href="/">Home</a> → <a href="/writing/">Writing</a> → {crumb}</p>
+  <main class="wrap" id="main" tabindex="-1">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">→</span> <a href="/writing/">Writing</a> <span aria-hidden="true">→</span> <span aria-current="page">{crumb}</span></nav>
 
     <article>
       <p class="eyebrow">{eyebrow}</p>
@@ -237,18 +258,21 @@ TEMPLATE = """<!DOCTYPE html>
 {body}
 
       <div class="author-card">
-        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida">
+        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida" loading="lazy" decoding="async">
         <div>
           <h3><a href="/" rel="author">Clayton Camera</a></h3>
           <p>Technical founder and software engineer in Orlando, Florida. Builds AI systems, autonomous agents, and full-stack software — including <a href="https://www.orbitroute.ai">OrbitRoute</a> and <a href="https://www.knockfiber.com/">KnockFiber</a>. Client work at <a href="https://workwithclayton.com/">workwithclayton.com</a>.</p>
         </div>
       </div>
+
+      <p class="post-end"><a href="/writing/"><span aria-hidden="true">←</span> All writing</a></p>
     </article>
   </main>
 
   <footer class="site-footer">
-    <p><a href="/">Clayton Camera</a> · <a href="/writing/">Writing</a> · <a href="https://workwithclayton.com/">Work with Clayton</a> · <a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> · <a href="https://github.com/claytoncamera" rel="me">GitHub</a></p>
+    <p><span class="fl-i"><a href="/">Clayton Camera</a> ·</span> <span class="fl-i"><a href="/writing/">Writing</a> ·</span> <span class="fl-i"><a href="https://workwithclayton.com/">Work with Clayton</a> ·</span> <span class="fl-i"><a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> ·</span> <span class="fl-i"><a href="https://github.com/claytoncamera" rel="me">GitHub</a></span></p>
     <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+    <a class="to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
 </body>
 </html>
@@ -347,7 +371,7 @@ def _add_to_hub(slug, title, lede, eyebrow, date_human, date):
     card = (f'        <li>\n'
             f'          <p class="meta">{date_human} · {html.escape(eyebrow)}</p>\n'
             f'          <h2><a href="{href}">{html.escape(title)}</a></h2>\n'
-            f'          <p>{inline(lede[:260])}</p>\n'
+            f'          <p>{inline(excerpt(lede, 260))}</p>\n'
             f'        </li>\n')
     s = s.replace('      <ul class="post-list">\n', '      <ul class="post-list">\n' + card, 1)
     # keep the Blog node's blogPost list in sync
@@ -375,7 +399,7 @@ def _add_to_homepage(slug, title, lede, eyebrow, date):
     card = (f'        <div class="venture">\n'
             f'          <div class="meta">{short} · {html.escape(eyebrow)}</div>\n'
             f'          <h3><a href="{href}">{html.escape(title)}</a></h3>\n'
-            f'          <p>{inline(lede[:200])}</p>\n'
+            f'          <p>{inline(excerpt(lede, 200))}</p>\n'
             f'        </div>\n')
     anchor = '    <section class="block" id="writing">'
     idx = s.find(anchor)

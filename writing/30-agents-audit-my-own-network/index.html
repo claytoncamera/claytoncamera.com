@@ -21,6 +21,10 @@
   <meta name="twitter:description" content="I own six domains. Across three working sessions I wired five of them into a single person entity: one @id, defined once, referenced by every property, so that search engines resolve one person instead of six unrelated mentions. That build was agent-driven too, one file at a time, and at the end of ">
   <meta name="twitter:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
   <meta name="theme-color" content="#08080d">
+  <link rel="icon" href="/assets/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <script>document.documentElement.className += ' js';</script>
+  <script src="/assets/nav.js" defer></script>
 
   <!-- author + publisher REFERENCE the canonical Person @id owned by the
        homepage. Never redefine it here — see the note in /index.html. -->
@@ -82,21 +86,23 @@
   <link rel="stylesheet" href="/assets/article.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="bg-grid"></div>
 
   <header class="top-header">
     <div class="wrap">
       <a class="logo" href="/">Clayton Camera</a>
-      <nav><ul class="nav-links">
-        <li><a href="/writing/">Writing</a></li>
+      <nav id="primary-nav" aria-label="Primary"><ul class="nav-links">
+        <li><a href="/writing/" aria-current="true">Writing</a></li>
         <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
         <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
       </ul></nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
     </div>
   </header>
 
-  <main class="wrap">
-    <p class="crumbs"><a href="/">Home</a> → <a href="/writing/">Writing</a> → 30 agents, told to prove each other wrong</p>
+  <main class="wrap" id="main" tabindex="-1">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">→</span> <a href="/writing/">Writing</a> <span aria-hidden="true">→</span> <span aria-current="page">30 agents, told to prove each other wrong</span></nav>
 
     <article>
       <p class="eyebrow">AI agents in production</p>
@@ -131,7 +137,7 @@
 
       <p>Every validator passes it. The JSON parses, the types resolve, nothing anywhere goes red. It is simply the inverse of what I meant, published on the one page in the network that carries the most weight.</p>
 
-      <blockquote><strong>The rule I took from this</strong> Valid JSON stating the inverse of what you mean is worse than invalid JSON. Invalid markup gets ignored. Well-formed markup that lies gets believed.</blockquote>
+      <blockquote class="labelled"><strong>The rule I took from this</strong> Valid JSON stating the inverse of what you mean is worse than invalid JSON. Invalid markup gets ignored. Well-formed markup that lies gets believed.</blockquote>
 
       <p>There was a second defect stacked on the first, and it was the more expensive one. The companies in that array were <strong>anonymous nodes</strong> — no <code>@id</code>. A <code>url</code> is not an identifier; two of my other sites already publish those companies with real identifiers, each with <code>founder</code> pointing back at the person. So the definition site was minting a second, duplicate copy of every company instead of closing the loop with the ones that already existed. Two half-evidenced companies where there should have been one.</p>
 
@@ -158,7 +164,7 @@
 
       <p>The rewrite walks every <code>application/ld+json</code> block, parses it, and classifies each Person node as a definition (carries identity payload — <code>givenName</code>, <code>image</code>, <code>sameAs</code>, <code>address</code>) or a reference (<code>@id</code> and name). Definitions must number exactly one. References are expected everywhere.</p>
 
-      <blockquote><strong>Rule</strong> Parse the structured data. Do not pattern-match the file. Any guard that greps for a schema property breaks on the day you write about that property, and it breaks in the direction that trains you to ignore it.</blockquote>
+      <blockquote class="labelled"><strong>Rule</strong> Parse the structured data. Do not pattern-match the file. Any guard that greps for a schema property breaks on the day you write about that property, and it breaks in the direction that trains you to ignore it.</blockquote>
 
       <p>Then negative-test it. Every guard I built in that session was verified by injecting the violation it claims to catch — a second definition, a stray identifier, a duplicate company — and confirming the suite goes red. A guard that has never failed is a guard you have not tested.</p>
 
@@ -175,7 +181,7 @@
       <p>This is the part I would skip if I were selling you something.</p>
 
       <table>
-        <thead><tr><th>Finding proposed</th><th>Verdict</th></tr></thead>
+        <thead><tr><th scope="col">Finding proposed</th><th scope="col">Verdict</th></tr></thead>
         <tbody><tr><td>130 job pages use an anonymous hiring organization for a partner company</td><td><strong>Rejected</strong> — that partner is not my company; an anonymous node is correct here</td></tr><tr><td>Articles bylined to the organization rather than the person</td><td><strong>Rejected</strong> — valid schema</td></tr><tr><td>Marketing pages lack a person signal on all 13 pages</td><td><strong>Rejected</strong> — a person signal on two pages is the right surface, not thirteen</td></tr><tr><td>The <code>sameAs</code> array mixes organization identities with the person's</td><td><strong>Rejected</strong> — false; each target does identify the person</td></tr><tr><td>The FAQ block is a disconnected root node</td><td><strong>Rejected</strong> — false</td></tr></tbody>
       </table>
 
@@ -201,21 +207,24 @@
 
       <p>Whether any of it moves a search result is a question for the three-to-six-month mark, and I will publish that number whichever way it goes.</p>
 
-      <blockquote><strong>The one-line version</strong> If you point agents at your own work, point a second set at the first set's conclusions and pay them to be wrong. Twenty-four findings that nobody challenged and fourteen that survived a refutation attempt read identically on the page. Only one of them is worth acting on.</blockquote>
+      <blockquote class="labelled"><strong>The one-line version</strong> If you point agents at your own work, point a second set at the first set's conclusions and pay them to be wrong. Twenty-four findings that nobody challenged and fourteen that survived a refutation attempt read identically on the page. Only one of them is worth acting on.</blockquote>
 
       <div class="author-card">
-        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida">
+        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida" loading="lazy" decoding="async">
         <div>
           <h3><a href="/" rel="author">Clayton Camera</a></h3>
           <p>Technical founder and software engineer in Orlando, Florida. Builds AI systems, autonomous agents, and full-stack software — including <a href="https://www.orbitroute.ai">OrbitRoute</a> and <a href="https://www.knockfiber.com/">KnockFiber</a>. Client work at <a href="https://workwithclayton.com/">workwithclayton.com</a>.</p>
         </div>
       </div>
+
+      <p class="post-end"><a href="/writing/"><span aria-hidden="true">←</span> All writing</a></p>
     </article>
   </main>
 
   <footer class="site-footer">
-    <p><a href="/">Clayton Camera</a> · <a href="/writing/">Writing</a> · <a href="https://workwithclayton.com/">Work with Clayton</a> · <a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> · <a href="https://github.com/claytoncamera" rel="me">GitHub</a></p>
+    <p><span class="fl-i"><a href="/">Clayton Camera</a> ·</span> <span class="fl-i"><a href="/writing/">Writing</a> ·</span> <span class="fl-i"><a href="https://workwithclayton.com/">Work with Clayton</a> ·</span> <span class="fl-i"><a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> ·</span> <span class="fl-i"><a href="https://github.com/claytoncamera" rel="me">GitHub</a></span></p>
     <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+    <a class="to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
 </body>
 </html>

@@ -21,6 +21,10 @@
   <meta name="twitter:description" content="What a dry run has to print to be worth running — from an outreach engine that nearly faked a conversation with every top prospect.">
   <meta name="twitter:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
   <meta name="theme-color" content="#08080d">
+  <link rel="icon" href="/assets/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <script>document.documentElement.className += ' js';</script>
+  <script src="/assets/nav.js" defer></script>
 
   <script type="application/ld+json">
   {
@@ -60,21 +64,23 @@
   <link rel="stylesheet" href="/assets/article.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="bg-grid"></div>
 
   <header class="top-header">
     <div class="wrap">
       <a class="logo" href="/">Clayton Camera</a>
-      <nav><ul class="nav-links">
-        <li><a href="/writing/">Writing</a></li>
+      <nav id="primary-nav" aria-label="Primary"><ul class="nav-links">
+        <li><a href="/writing/" aria-current="true">Writing</a></li>
         <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
         <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
       </ul></nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
     </div>
   </header>
 
-  <main class="wrap">
-    <p class="crumbs"><a href="/">Home</a> → <a href="/writing/">Writing</a> → The dry run that caught 25 fabricated reply threads</p>
+  <main class="wrap" id="main" tabindex="-1">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">→</span> <a href="/writing/">Writing</a> <span aria-hidden="true">→</span> <span aria-current="page">The dry run that caught 25 fabricated reply threads</span></nav>
 
     <article>
       <p class="eyebrow">AI agents in production</p>
@@ -93,7 +99,7 @@
 
       <table>
         <thead>
-          <tr><th>Bucket</th><th>Count</th></tr>
+          <tr><th scope="col">Bucket</th><th scope="col">Count</th></tr>
         </thead>
         <tbody>
           <tr><td><code>Re:</code> + <strong>never contacted</strong></td><td><strong>25</strong> ← fabricated thread</td></tr>
@@ -154,18 +160,21 @@
       </div>
 
       <div class="author-card">
-        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida">
+        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida" loading="lazy" decoding="async">
         <div>
           <h3><a href="/" rel="author">Clayton Camera</a></h3>
           <p>Technical founder and software engineer in Orlando, Florida. Builds AI systems, autonomous agents, and full-stack software — including <a href="https://www.orbitroute.ai">OrbitRoute</a> and <a href="https://www.knockfiber.com/">KnockFiber</a>. Client work at <a href="https://workwithclayton.com/">workwithclayton.com</a>.</p>
         </div>
       </div>
+
+      <p class="post-end"><a href="/writing/"><span aria-hidden="true">←</span> All writing</a></p>
     </article>
   </main>
 
   <footer class="site-footer">
-    <p><a href="/">Clayton Camera</a> · <a href="/writing/">Writing</a> · <a href="https://workwithclayton.com/">Work with Clayton</a> · <a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> · <a href="https://github.com/claytoncamera" rel="me">GitHub</a></p>
+    <p><span class="fl-i"><a href="/">Clayton Camera</a> ·</span> <span class="fl-i"><a href="/writing/">Writing</a> ·</span> <span class="fl-i"><a href="https://workwithclayton.com/">Work with Clayton</a> ·</span> <span class="fl-i"><a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> ·</span> <span class="fl-i"><a href="https://github.com/claytoncamera" rel="me">GitHub</a></span></p>
     <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+    <a class="to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
 </body>
 </html>
