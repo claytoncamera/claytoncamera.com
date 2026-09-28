@@ -35,8 +35,9 @@ That id is referenced from **four files across four repos**:
 **Never mint a second Person `@id`.** A split id turns one person into several unrelated mentions
 and discards every signal pointing here. If the id ever changes, change all four in one commit.
 
-`loopholemaxing/tests/seo-scan.sh` enforces the single-id rule **inside the loopholemaxing repo
-only** — this repo and workwithclayton are not covered by it, so check them by hand.
+Each repo runs its own `tests/seo-scan.sh` in CI. This repo guards the single Person
+definition; workwithclayton and loopholemaxing guard their references to it. Run the
+local scan before shipping a change to the entity wiring.
 
 ## Maintenance
 
