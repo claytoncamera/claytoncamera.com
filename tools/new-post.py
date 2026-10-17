@@ -282,14 +282,35 @@ MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
 
 
+ABBREVIATIONS = {"dr", "mr", "mrs", "ms", "st", "vs", "etc", "inc", "ltd", "co", "jr", "sr",
+                 "e.g", "i.e", "u.s", "no", "approx", "fig"}
+
+
+def sentences(text):
+    """Split on . ! ? followed by whitespace, but not after a known abbreviation ("Dr.", "e.g.")
+    or a single initial ("J.")."""
+    parts, current = [], ""
+    for piece in re.split(r"(?<=[.!?])\s+", text):
+        current = f"{current} {piece}".strip()
+        last = current.rsplit(" ", 1)[-1].rstrip(".").lower()
+        if current.endswith(".") and (last in ABBREVIATIONS or len(last) == 1):
+            continue
+        parts.append(current)
+        current = ""
+    if current:
+        parts.append(current)
+    return parts
+
+
 def summarize(text, limit=160):
-    """Whole sentences up to `limit` chars; else cut at a word boundary with an ellipsis.
-    The old lede[:300] slice shipped a description ending mid-phrase ("and at the end of ")."""
+    """Whole sentences up to `limit` chars when that yields at least 80 chars; otherwise
+    cut at a word boundary with an ellipsis. The old lede[:300] slice shipped a
+    description ending mid-phrase ("and at the end of ")."""
     text = " ".join(text.split())
     if len(text) <= limit:
         return text
     out = ""
-    for sentence in re.split(r"(?<=[.!?])\s+", text):
+    for sentence in sentences(text):
         if len(out) + len(sentence) + (1 if out else 0) > limit:
             break
         out = f"{out} {sentence}".strip()
