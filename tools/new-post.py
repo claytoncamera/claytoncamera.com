@@ -282,6 +282,43 @@ MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
 
 
+ABBREVIATIONS = {"dr", "mr", "mrs", "ms", "st", "vs", "etc", "inc", "ltd", "co", "jr", "sr",
+                 "e.g", "i.e", "u.s", "no", "approx", "fig"}
+
+
+def sentences(text):
+    """Split on . ! ? followed by whitespace, but not after a known abbreviation ("Dr.", "e.g.")
+    or a single initial ("J.")."""
+    parts, current = [], ""
+    for piece in re.split(r"(?<=[.!?])\s+", text):
+        current = f"{current} {piece}".strip()
+        last = current.rsplit(" ", 1)[-1].rstrip(".").lower()
+        if current.endswith(".") and (last in ABBREVIATIONS or len(last) == 1):
+            continue
+        parts.append(current)
+        current = ""
+    if current:
+        parts.append(current)
+    return parts
+
+
+def summarize(text, limit=160):
+    """Whole sentences up to `limit` chars when that yields at least 80 chars; otherwise
+    cut at a word boundary with an ellipsis. The old lede[:300] slice shipped a
+    description ending mid-phrase ("and at the end of ")."""
+    text = " ".join(text.split())
+    if len(text) <= limit:
+        return text
+    out = ""
+    for sentence in sentences(text):
+        if len(out) + len(sentence) + (1 if out else 0) > limit:
+            break
+        out = f"{out} {sentence}".strip()
+    if len(out) >= 80:
+        return out
+    return text[:limit - 1].rsplit(" ", 1)[0].rstrip(",;:—-") + "…"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("markdown")
@@ -291,6 +328,8 @@ def main():
     ap.add_argument("--read-time", default="6 min read")
     ap.add_argument("--keywords", default="")
     ap.add_argument("--crumb", default="", help="short breadcrumb label; defaults to the title")
+    ap.add_argument("--description", default="",
+                    help="meta/OG/JSON-LD summary (aim for 140-160 chars); defaults to the lede cut at a sentence boundary")
     args = ap.parse_args()
 
     md = pathlib.Path(args.markdown).read_text(encoding="utf-8")
@@ -298,7 +337,8 @@ def main():
     slug = args.slug.strip("/")
     url = f"{BASE}/writing/{slug}/"
     crumb = args.crumb or title
-    desc = html.escape(lede[:300], quote=True)
+    summary = args.description.strip() or summarize(lede)
+    desc = html.escape(summary, quote=True)
     y, m, d = args.date.split("-")
     date_human = f"{int(d)} {MONTHS[int(m) - 1]} {y}"
 
@@ -309,7 +349,7 @@ def main():
                 "@type": "BlogPosting",
                 "@id": f"{url}#article",
                 "headline": title,
-                "description": lede[:300],
+                "description": summary,
                 "url": url,
                 "mainEntityOfPage": url,
                 "datePublished": args.date,
