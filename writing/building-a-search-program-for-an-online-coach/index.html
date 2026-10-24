@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Building a search program for an online coach from public data — Clayton Camera</title>
+  <meta name="description" content="How Ascent Vision built the site and search program for an online fitness coach: place pages only where public data gives them something true to say.">
+  <link rel="canonical" href="https://claytoncamera.com/writing/building-a-search-program-for-an-online-coach/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Building a search program for an online coach from public data">
+  <meta property="og:description" content="How Ascent Vision built the site and search program for an online fitness coach: place pages only where public data gives them something true to say.">
+  <meta property="og:url" content="https://claytoncamera.com/writing/building-a-search-program-for-an-online-coach/">
+  <meta property="og:site_name" content="Clayton Camera">
+  <meta property="og:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta property="article:author" content="Clayton Camera">
+  <meta property="article:published_time" content="2026-10-24">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Building a search program for an online coach from public data">
+  <meta name="twitter:description" content="How Ascent Vision built the site and search program for an online fitness coach: place pages only where public data gives them something true to say.">
+  <meta name="twitter:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta name="theme-color" content="#08080d">
+  <link rel="icon" href="/assets/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <script>document.documentElement.className += ' js';</script>
+  <script src="/assets/nav.js" defer></script>
+
+  <!-- author + publisher REFERENCE the canonical Person @id owned by the
+       homepage. Never redefine it here — see the note in /index.html. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://claytoncamera.com/writing/building-a-search-program-for-an-online-coach/#article",
+      "headline": "Building a search program for an online coach from public data",
+      "description": "How Ascent Vision built the site and search program for an online fitness coach: place pages only where public data gives them something true to say.",
+      "url": "https://claytoncamera.com/writing/building-a-search-program-for-an-online-coach/",
+      "mainEntityOfPage": "https://claytoncamera.com/writing/building-a-search-program-for-an-online-coach/",
+      "datePublished": "2026-10-24",
+      "dateModified": "2026-10-24",
+      "inLanguage": "en-US",
+      "image": "https://claytoncamera.com/assets/clayton-camera.jpg",
+      "author": {
+        "@id": "https://claytoncamera.com/#person"
+      },
+      "publisher": {
+        "@id": "https://claytoncamera.com/#person"
+      },
+      "isPartOf": {
+        "@id": "https://claytoncamera.com/writing/#blog"
+      },
+      "keywords": "programmatic SEO, doorway pages, public data, online coaching, fact-checking"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Clayton Camera",
+          "item": "https://claytoncamera.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Writing",
+          "item": "https://claytoncamera.com/writing/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Search program for an online coach"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/article.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg-grid"></div>
+
+  <header class="top-header">
+    <div class="wrap">
+      <a class="logo" href="/">Clayton Camera</a>
+      <nav id="primary-nav" aria-label="Primary"><ul class="nav-links">
+        <li><a href="/writing/" aria-current="true">Writing</a></li>
+        <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
+        <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
+      </ul></nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+    </div>
+  </header>
+
+  <main class="wrap" id="main" tabindex="-1">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">→</span> <a href="/writing/">Writing</a> <span aria-hidden="true">→</span> <span aria-current="page">Search program for an online coach</span></nav>
+
+    <article>
+      <p class="eyebrow">Technical SEO</p>
+      <h1>Building a search program for an online coach from public data</h1>
+      <p class="byline">By <a href="/" rel="author">Clayton Camera</a> · 24 October 2026 · 5 min read</p>
+
+      <p class="lede">An online coach has no storefront, so there is no address to put on a map and no neighborhood to be "near." I helped build the site and search program for <a href="https://diogofit.com/">Diogo Fitness</a>, an online fitness coach in South Florida, through <a href="https://ascentvision.org/">Ascent Vision</a>, the marketing company I run with Grayson Sorrentino. The hard question was what a page about Chandler, Arizona could honestly say to someone who will never meet the coach.</p>
+
+      <p>The answer I settled on: it can say something true about Chandler, from a public source, or it should not exist.</p>
+
+      <h2>The doorway-page problem</h2>
+
+      <p>The obvious play for a service with no location is to generate a page per place: "online fitness coach in [city]," same paragraph, city name swapped. Search engines have a name for that, doorway pages, and a long record of discounting them. An online service makes it worse, because there is no real local fact to hide behind. Every page would be the same page.</p>
+
+      <p>So the rule for the place pages was blunt: <strong>a place page ships only if it carries real local data.</strong> If the data is not there, the page does not get built.</p>
+
+      <h2>What the place pages are made of</h2>
+
+      <p>Today the site has 51 state pages (50 states plus DC), 43 metro pages and 27 city pages under /online-coaching/. Each is assembled from three public sources, cited on the page itself:</p>
+
+      <ul>
+        <li><strong>Activity and health behavior:</strong> CDC BRFSS and PLACES.</li>
+        <li><strong>Commuting:</strong> Census American Community Survey.</li>
+        <li><strong>Climate:</strong> NOAA 1991-2020 climate normals.</li>
+      </ul>
+
+      <p>The point is not to decorate a page with statistics. Commute time, summer heat and local activity rates are the things that decide whether someone can keep a training habit, which is exactly what a coach works on. A coach who plans around a long commute and a hot August is saying something specific. The data lets the page say that for one place and not another. You can see how the <a href="https://diogofit.com/online-coaching/">state pages</a> are organized from the index.</p>
+
+      <p>Alongside those sit about 35 articles under /learn/ that cite peer-reviewed sources. The one that does the most work is <a href="https://diogofit.com/learn/what-is-online-fitness-coaching/">the article on what online fitness coaching is</a>, because it answers the question most visitors arrive with before any place page matters.</p>
+
+      <h2>The rules that keep it honest</h2>
+
+      <p>A coach's site is exactly where marketing habits go wrong, so I wrote the prohibitions down and made the machine enforce them:</p>
+
+      <ol>
+        <li>No page shows a price. The build runs a check that fails if it finds a dollar amount.</li>
+        <li>No invented testimonials, client counts or results. If it is not real and checkable, it is not on the page.</li>
+        <li>Applications go to Instagram DMs or email. The site stores nothing; the apply page builds a message in your browser, and what you type does not leave your device until you send it.</li>
+      </ol>
+
+      <p>The first rule is a build check rather than a guideline on purpose. Guidelines get forgotten in the fortieth batch of pages. A failing build does not.</p>
+
+      <h2>A second agent re-fetches every source</h2>
+
+      <p>I draft pages with agents, and agents are fluent in a way that outruns their evidence. So no page ships on the drafter's word. A second agent, with no stake in the draft, re-fetches every cited source and checks each sentence against what the source says.</p>
+
+      <p>It earns its keep on wording more than on numbers. The typical catch is a sentence that reads a little stronger than the source supports. The figure can be right and the claim still wrong by a degree, and a reader would never notice. A checker with the source open does.</p>
+
+      <h2>What I would tell the next person</h2>
+
+      <p><strong>An online service has no local address, so place pages earn their place only with place-specific data.</strong> Everything else follows from that. If you cannot name the local fact a page contains, you are building a doorway page with a nicer template.</p>
+
+      <p><strong>New domains get crawled fast and indexed slowly.</strong> Crawlers found the new domain quickly and read the whole site. Being added to the index is a separate decision, made later, and it is the one that matters. I would rather say that plainly than promise a timeline. It is also why I am not publishing results here: the program is young, and I would only be guessing.</p>
+
+      <p><strong>Verification catches a different class of error than testing does.</strong> Builds catch broken links and a stray price. Only a second reader with the sources open catches a claim that is well formed, linked and wrong by a degree. I have <a href="/writing/four-times-my-verification-lied/">written before</a> about checks that passed while the work was wrong, and this is the same lesson at page scale.</p>
+
+      <p><strong>Constraints are the product.</strong> "No price, no testimonial, no unsourced claim" sounds like a handicap for a marketing site. In practice it is why every page can be defended line by line. When a page is built that way, you can show someone the source for any sentence on it.</p>
+
+      <p>The whole site is checkable by anyone with a browser: open a city page, find the source it cites, and see whether the sentence matches.</p>
+
+      <div class="author-card">
+        <img src="/assets/clayton-camera.jpg" width="60" height="60" alt="Clayton Camera, technical founder and software engineer in Orlando, Florida" loading="lazy" decoding="async">
+        <div>
+          <h3><a href="/" rel="author">Clayton Camera</a></h3>
+          <p>Technical founder and software engineer in Orlando, Florida. Builds AI systems, autonomous agents, and full-stack software — including <a href="https://www.orbitroute.ai">OrbitRoute</a> and <a href="https://www.knockfiber.com/">KnockFiber</a>. Client work at <a href="https://workwithclayton.com/">workwithclayton.com</a>.</p>
+        </div>
+      </div>
+
+      <p class="post-end"><a href="/writing/"><span aria-hidden="true">←</span> All writing</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p><span class="fl-i"><a href="/">Clayton Camera</a> ·</span> <span class="fl-i"><a href="/writing/">Writing</a> ·</span> <span class="fl-i"><a href="https://workwithclayton.com/">Work with Clayton</a> ·</span> <span class="fl-i"><a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> ·</span> <span class="fl-i"><a href="https://github.com/claytoncamera" rel="me">GitHub</a></span></p>
+    <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+    <a class="to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
+</body>
+</html>
