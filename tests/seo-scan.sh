@@ -30,6 +30,7 @@ DOMAIN="https://claytoncamera.com"
 PAGES=(
   "/"
   "/writing/"
+  "/writing/building-a-search-program-for-an-online-coach/"
   "/writing/four-times-my-verification-lied/"
   "/writing/30-agents-audit-my-own-network/"
   "/writing/dry-run-caught-25-fake-reply-threads/"
