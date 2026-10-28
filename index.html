@@ -198,7 +198,7 @@
         "name": "Who is Clayton Camera?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Clayton Camera is a technical founder and software engineer based in Orlando, Florida. He builds AI systems, autonomous agents, trading research infrastructure, and full-stack commerce software, and runs several ventures in parallel including Ascent Vision, KnockFiber, OrbitRoute, Practically Natty, and PeptiDex. He works across software, recruiting, commerce and marketing, including Ascent Vision, which he co-founded with Grayson Sorrentino."
+          "text": "Clayton Camera is a technical founder and software engineer based in Orlando, Florida. He co-founded Ascent Vision, a technology company, with Grayson Sorrentino; founded KnockFiber, an independent fiber-sales recruiting company, and OrbitRoute, a compute-routing platform; and is CTO & Managing Partner at Practically Natty. He builds websites, software, AI systems and the operating tools behind them."
         }
       },
       {
@@ -206,7 +206,7 @@
         "name": "What does Clayton Camera build?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Live software systems, not prototypes: an orbital-compute routing platform (OrbitRoute), a peptide e-commerce operation with a custom operations plugin and affiliate engine (Practically Natty), a multi-market fiber recruiting platform in English and Spanish (KnockFiber), a peptide research reference (PeptiDex), a public Bitcoin forecast ledger that scores its own accuracy (BTC Intelligence Brain), and websites and lead systems for service businesses (Ascent Vision)."
+          "text": "Working software, shipped live: an orbital-compute routing platform (OrbitRoute), a peptide e-commerce operation with a custom operations plugin and affiliate engine (Practically Natty), a bilingual fiber-sales recruiting platform (KnockFiber), a structured peptide research reference (PeptiDex), and websites, software and AI systems for businesses through Ascent Vision. Earlier research projects, including a self-scoring Bitcoin forecast ledger, are kept as an archive on the work page."
         }
       },
       {
@@ -214,7 +214,7 @@
         "name": "Is Clayton Camera available for client work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Engagements run through workwithclayton.com and start with a fixed-fee audit that identifies revenue leaks and manual work worth automating, followed by an optional build sprint or ongoing operator retainer."
+          "text": "Yes. Client engagements run through workwithclayton.com: a 48-hour fixed-fee audit of one workflow, then an optional focused build sprint, with the audit fee credited toward the sprint."
         }
       },
       {
@@ -222,7 +222,15 @@
         "name": "Where is Clayton Camera based?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Orlando, Florida, United States. He works remotely with clients and operates in the America/New_York timezone."
+          "text": "Orlando, Florida, United States. He works remotely with clients and operates on Eastern time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this the same as the Clayton traffic cameras?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Searching the exact phrase “Clayton Camera” also returns live traffic and weather cameras for the towns of Clayton in New York, North Carolina and California, plus unrelated photography businesses. This site is about Clayton Camera the person — a software founder, not a webcam."
         }
       }
     ]
@@ -348,11 +356,6 @@
     }
     .profiles a:hover { border-color: var(--brand-1); color: var(--text-primary); }
 
-    /* "On this page" — plain text links (not chips), wrapping onto a second row on phones */
-    .jump { display: flex; flex-wrap: wrap; align-items: center; gap: 0 18px; padding: 0 0 14px; }
-    .jump-label { font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
-    .jump a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 150ms ease; }
-    .jump a:hover { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--brand-3); text-decoration-thickness: 2px; text-underline-offset: 6px; }
 
     section.block { padding: 44px 0; border-top: 1px solid var(--border); }
     .section-label { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand-3); margin-bottom: 10px; }
@@ -389,6 +392,10 @@
     .faq summary::before { content: '+ '; display: inline-block; width: 1.1em; text-indent: 0; color: var(--brand-3); font-weight: 700; }
     .faq details[open] summary::before { content: '– '; }
     .faq details p { margin: 0; padding: 0 20px 18px; font-size: 1rem; }
+
+    .contact { margin-top: 34px; padding: 22px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; }
+    .contact h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .contact .cta-row { margin-top: 18px; }
 
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
     .tag { background: var(--bg-card-2); border: 1px solid var(--border); color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; font-size: 0.83rem; font-weight: 500; }
@@ -463,17 +470,6 @@
       .nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after { transition: none; }
     }
 
-    /* Current work: a short path from the portfolio to the right conversation. */
-    .current-work { margin: 28px 0 40px; }
-    .current-work-heading { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary, #666); margin-bottom: 14px; }
-    .current-work-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
-    .current-work-link { display: flex; flex-direction: column; gap: 8px; padding: 22px; border: 1px solid var(--border-light, #ddd); border-radius: 14px; background: var(--bg-card, #fff); text-decoration: none; color: inherit; }
-    .current-work-link strong { font-size: 18px; line-height: 1.35; }
-    .current-work-link span { color: var(--text-secondary, #666); font-size: 14px; line-height: 1.6; }
-    .current-work-link em { font-size: 13px; font-style: normal; color: var(--green, #127c4c); margin-top: auto; padding-top: 6px; }
-    .current-work-link:hover { border-color: var(--green, #127c4c); }
-    .current-work-link:focus-visible { outline: 3px solid var(--green, #127c4c); outline-offset: 4px; }
-    @media(max-width:700px) { .current-work-grid { grid-template-columns: 1fr; } .current-work-link { padding: 20px; } }
   </style>
 </head>
 <body>
@@ -484,9 +480,9 @@
     <div class="wrap">
       <a class="logo" href="/">Clayton Camera</a>
       <nav id="primary-nav" aria-label="Primary"><ul class="nav-links">
-        <li><a href="/writing/">Writing</a></li>
-        <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
-        <li class="hide-sm"><a href="https://loopholemaxing.com/#shiplog">Ship Log</a></li>
+        <li><a href="/work/">Work</a></li>
+        <li class="hide-sm"><a href="/about/">About</a></li>
+        <li class="hide-sm"><a href="/writing/">Writing</a></li>
         <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
       </ul></nav>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
@@ -505,13 +501,11 @@
       </div>
       <p class="role"><strong>Technical founder and software engineer.</strong> I build the websites, software and operating systems behind businesses — from customer acquisition to compute orchestration.</p>
 
-      <p class="lede">I’m based in <strong>Orlando, Florida</strong>, and work across several ventures: co-founder &amp; managing member of <strong>Ascent Vision</strong>, founder of <strong>KnockFiber</strong> and <strong>OrbitRoute</strong>, and CTO &amp; managing partner at <strong>Practically Natty</strong>. My work spans search visibility, recruiting, AI, commerce and software infrastructure.</p>
-
-      <p class="lede">The common thread is practical: understand how a business works, build the missing system, and make the result measurable. I handle architecture, implementation, integrations and the details that keep a product useful after launch.</p>
+      <p class="lede">I’m based in <strong>Orlando, Florida</strong>. I co-founded <strong>Ascent Vision</strong>, founded <strong>KnockFiber</strong> and <strong>OrbitRoute</strong>, and serve as CTO &amp; managing partner at <strong>Practically Natty</strong>. The common thread is practical: understand how a business works, build the missing system, and make the result measurable.</p>
 
       <div class="cta-row">
         <a class="btn-hire" href="https://workwithclayton.com/">Work with Clayton <span aria-hidden="true">→</span></a>
-        <a class="btn-ghost" href="#what-i-build">See the work <span aria-hidden="true">↓</span></a>
+        <a class="btn-ghost" href="/about/">About Clayton <span aria-hidden="true">→</span></a>
       </div>
 
       <div class="profiles">
@@ -520,130 +514,67 @@
         <a href="https://dev.to/claytoncamera" rel="me noopener" target="_blank">dev.to</a>
         <a href="https://www.instagram.com/clayton_camera/" rel="me noopener" target="_blank">Instagram</a>
         <a href="https://loopholemaxing.com/" rel="me noopener" target="_blank">Loopholemaxing</a>
-        <a href="https://workwithclayton.com/" rel="me noopener" target="_blank">Work With Clayton</a>
       </div>
     </section>
 
-
-    <section class="current-work" aria-labelledby="current-work-title">
-      <h2 class="current-work-heading" id="current-work-title">Current focus · October 2026</h2>
-      <div class="current-work-grid">
-        <a class="current-work-link" href="https://ascentvision.org/" target="_blank" rel="noopener"><strong>Websites &amp; lead systems</strong><span>Ascent Vision helps service businesses improve search visibility and turn inquiries into a clear next step.</span><em>Explore Ascent Vision →</em></a>
-        <a class="current-work-link" href="https://www.knockfiber.com/" target="_blank" rel="noopener"><strong>Fiber-sales recruiting</strong><span>KnockFiber connects reps, crews, blitz teams and agencies with partner sales organizations.</span><em>Connect with KnockFiber →</em></a>
-        <a class="current-work-link" href="https://www.orbitroute.ai/" target="_blank" rel="noopener"><strong>Compute orchestration</strong><span>OrbitRoute models workload routing across terrestrial cloud and potential orbital capacity.</span><em>Explore OrbitRoute →</em></a>
-      </div>
-    </section>
-
-    <nav class="jump" aria-label="On this page">
-      <span class="jump-label">On this page</span>
-      <a href="#what-i-build">The work</a>
-      <a href="#website-work">Website work</a>
-      <a href="#how-i-work">Method</a>
-      <a href="#writing">Writing</a>
-      <a href="#faq">Common questions</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <section class="block" id="what-i-build">
-      <p class="section-label">The work</p>
-      <h2>What Clayton Camera builds</h2>
-      <p>A selection of ventures, public products and research projects. Open a project to see its current capabilities and status; research results belong to the linked scorecards.</p>
+    <section class="block" id="ventures">
+      <p class="section-label">Ventures</p>
+      <h2>What Clayton Camera is building</h2>
 
       <div class="ventures">
         <div class="venture">
           <div class="meta">Co-founder &amp; Managing Member · Live</div>
           <h3><a href="https://ascentvision.org/" target="_blank" rel="noopener">Ascent Vision</a></h3>
-          <p>A marketing company co-founded with Grayson Sorrentino. We work on search visibility, websites and lead systems for service businesses, connecting useful content and clear inquiry paths with follow-up and reporting.</p>
-        </div>
-
-        <div class="venture">
-          <div class="meta">Founder · Live</div>
-          <h3><a href="https://www.orbitroute.ai" target="_blank" rel="noopener">OrbitRoute</a></h3>
-          <p>A compute-routing platform with live orbital tracking, workload modeling, APIs and SDKs. It compares cost, latency and orbital constraints while keeping modeled capacity distinct from capacity available to buy. Orbital execution remains simulated; the public comparator recommends terrestrial cloud when the modeled economics favor it.</p>
-        </div>
-        <div class="venture">
-          <div class="meta">CTO &amp; Managing Partner · Live</div>
-          <h3><a href="https://practicallynatty.com" target="_blank" rel="noopener">Practically Natty</a></h3>
-          <p>Peptide e-commerce operation on WooCommerce with a custom operations plugin: rewards engine, promotion engine with tiered sales and bundles, inventory and COGS tracking, and a self-service affiliate hub.</p>
+          <p>A technology company co-founded with Grayson Sorrentino. Ascent Vision builds websites, custom software and AI systems for businesses, built to be found on Google and in AI answers, with every inquiry traced to its source.</p>
         </div>
         <div class="venture">
           <div class="meta">Founder · Live</div>
           <h3><a href="https://www.knockfiber.com/" target="_blank" rel="noopener">KnockFiber</a></h3>
-          <p>Independent fiber-sales recruiting for individual reps, crews, blitz teams and agencies. English and Spanish application paths connect candidates with partner sales organizations. KnockFiber is an independent recruiting business; placement, territory and acceptance depend on the partner and role. The site also carries plain-language guides, such as <a href="https://www.knockfiber.com/fiber-sales-guide" target="_blank" rel="noopener">how fiber sales work</a> and <a href="https://www.knockfiber.com/door-to-door-sales-jobs" target="_blank" rel="noopener">what door-to-door sales jobs involve</a>.</p>
+          <p>Independent recruiting for door-to-door fiber sales. Reps, crews, blitz teams and agencies apply in English or Spanish and are connected with partner sales organizations; placement, territory and acceptance depend on the partner and role.</p>
         </div>
         <div class="venture">
           <div class="meta">Founder · Live</div>
-          <h3><a href="https://www.thepeptidex.net" target="_blank" rel="noopener">PeptiDex</a></h3>
-          <p>A structured peptide and compound reference with searchable profiles, research categories, side-by-side comparisons, linked scientific references and a reconstitution calculator. The live library provides the current records and linked references.</p>
+          <h3><a href="https://www.orbitroute.ai" target="_blank" rel="noopener">OrbitRoute</a></h3>
+          <p>A compute-routing platform with live orbital tracking, workload modeling, APIs and SDKs. It compares cost, latency and orbital constraints, keeps modeled capacity apart from capacity you can buy, and recommends terrestrial cloud when the numbers favor it.</p>
         </div>
         <div class="venture">
-          <div class="meta">Research · Live</div>
-          <h3><a href="https://loopholemaxing.com/btc-brain/" target="_blank" rel="noopener">BTC Intelligence Brain</a></h3>
-          <p>A public Bitcoin forecast ledger that scores itself against a naive baseline. The linked scorecard publishes the current sample size, accuracy and baseline comparison with its source timestamp, including results that fail to show an edge.</p>
+          <div class="meta">CTO &amp; Managing Partner · Live</div>
+          <h3><a href="https://practicallynatty.com" target="_blank" rel="noopener">Practically Natty</a></h3>
+          <p>A peptide e-commerce operation on WooCommerce, run on a custom operations plugin: rewards, tiered promotions and bundles, inventory and cost tracking, and a self-service affiliate hub.</p>
         </div>
-        <div class="venture">
-          <div class="meta">Research · Archived Oct 2026</div>
-          <h3><a href="https://loopholemaxing.com/uae/" target="_blank" rel="noopener">Universal Analyst Engine</a></h3>
-          <p>Multi-domain narrative intelligence research that turned unstructured source material into comparable analysis. Its backend was shelved on October 7, 2026; the page is kept as an archive.</p>
-        </div>
-        <div class="venture">
-          <div class="meta">Prototype · Archived Oct 2026</div>
-          <h3><a href="https://loopholemaxing.com/vault/" target="_blank" rel="noopener">PersonalVault</a></h3>
-          <p>A personal document vault prototype that explored AES-256-GCM encryption in the browser, encrypted storage and document organization. Its backend was shelved on October 7, 2026.</p>
-        </div>
-        <div class="venture">
-          <div class="meta">Prototype · Source by request</div>
-          <h3><a href="https://loopholemaxing.com/ultron/" target="_blank" rel="noopener">ULTRON</a></h3>
-          <p>A local agent prototype that proposes actions for human approval, with an approval queue, a hash-chained audit log and a kill switch.</p>
-        </div>
-      </div>
-
-      <div class="cta-row">
-        <a class="btn-ghost" href="https://loopholemaxing.com/" target="_blank" rel="noopener">See all creations on Loopholemaxing <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
-    <section class="block" id="website-work">
-      <p class="section-label">Website delivery &amp; creative development</p>
-      <h2>Beyond the venture portfolio</h2>
-      <p>The work also includes websites for other businesses and interactive design concepts.</p>
+    <section class="block" id="selected-work">
+      <p class="section-label">Selected work</p>
+      <h2>Client sites and public products</h2>
+
       <div class="ventures">
         <div class="venture">
           <div class="meta">Website delivery · Live</div>
           <h3><a href="https://diogofit.com/" target="_blank" rel="noopener">Diogo Fitness</a></h3>
-          <p>Diogo Fitness (Diogo Fit) is one-to-one online fitness coaching from Diogo Camera, based in South Florida, for clients anywhere in the world. Its website was delivered through Ascent Vision: a page for every state and the biggest metros, training guides with their sources, and an application by Instagram, email or form. A practical example of connecting a business website to its next customer conversation. Its page on <a href="https://diogofit.com/online-coaching/florida/miami-metro/" target="_blank" rel="noopener">online fitness coaching in South Florida</a> shows how the metro data is used.</p>
+          <p>Diogo Fitness (Diogo Fit) is one-to-one online fitness coaching from Diogo Camera, based in South Florida, for clients anywhere in the world. Its website was delivered through Ascent Vision, with a page for every state and the biggest metros, such as <a href="https://diogofit.com/online-coaching/florida/miami-metro/" target="_blank" rel="noopener">online fitness coaching in South Florida</a>.</p>
+        </div>
+        <div class="venture">
+          <div class="meta">Founder · Live</div>
+          <h3><a href="https://www.thepeptidex.net" target="_blank" rel="noopener">PeptiDex</a></h3>
+          <p>A structured peptide and compound reference: searchable profiles, research categories, side-by-side comparisons, linked scientific references and a reconstitution calculator.</p>
         </div>
         <div class="venture">
           <div class="meta">Interactive website concept · Public demo</div>
           <h3><a href="https://raiden.biz/" target="_blank" rel="noopener">RAIDEN</a></h3>
-          <p>An artist-site concept combining a playable browser DJ booth, generative storm visuals and music, press and booking layouts. It demonstrates interactive web design; artist content and commercial rollout remain in development.</p>
+          <p>An artist-site concept with a playable browser DJ booth, generative storm visuals, and music, press and booking layouts. It demonstrates interactive web design; artist content and commercial rollout remain in development.</p>
         </div>
       </div>
-    </section>
 
-    <section class="block" id="how-i-work">
-      <p class="section-label">Method</p>
-      <h2>How he works</h2>
-      <p><strong>Ship live, then prove it.</strong> Public products have links you can inspect. When an audit found a pricing constant on OrbitRoute with the wrong sign, the fix wasn't softer wording — it was correcting the number and publishing a comparison that recommends the competitor.</p>
-      <p><strong>Make the result measurable.</strong> Define what success means before building. Keep source timestamps, clear ownership and useful reporting close to the workflow so the team can judge what improved.</p>
-      <p><strong>Honest instruments.</strong> A forecast tool that can't beat a coin flip should tell you it can't beat a coin flip. Earnings claims stay out of recruiting feeds. That discipline is enforced by guard tests in CI, not by good intentions.</p>
-
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">TypeScript / JavaScript</span>
-        <span class="tag">PHP</span>
-        <span class="tag">SQL / PostgreSQL</span>
-        <span class="tag">React</span>
-        <span class="tag">Node / Express</span>
-        <span class="tag">WordPress / WooCommerce</span>
-        <span class="tag">Railway</span>
-        <span class="tag">Vercel</span>
-        <span class="tag">AI agents &amp; LLM tooling</span>
+      <div class="cta-row">
+        <a class="btn-ghost" href="/work/">All work, including the archive <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
-    <!-- Internal linking to /writing/. Posts reached only from the sitemap
-         are orphans; this section is the crawl path. Add new posts here. -->
+    <!-- Internal linking to /writing/: the three newest posts. Posts reached
+         only from the sitemap are orphans; /writing/ lists all of them.
+         tools/new-post.py adds a card here and keeps the newest three. -->
     <section class="block" id="writing">
       <p class="section-label">Writing</p>
       <h2>Notes from shipping live systems</h2>
@@ -665,16 +596,6 @@
           <h3><a href="/writing/30-agents-audit-my-own-network/">I pointed 30 agents at my own websites and told them to prove each other wrong</a></h3>
           <p>I own six domains. Across three working sessions I wired five of them into a single person entity: one @id, defined once, referenced by every property, so that search engines resolve one person instead…</p>
         </div>
-        <div class="venture">
-          <div class="meta">27 Jul 2026 · AI agents in production</div>
-          <h3><a href="/writing/dry-run-caught-25-fake-reply-threads/">The dry run that caught 25 fabricated reply threads</a></h3>
-          <p>An agent-drafted outreach queue was about to open 25 cold emails with a <code>Re:</code> — to companies that had never been contacted. What a dry run has to print to catch a well-formed lie.</p>
-        </div>
-        <div class="venture">
-          <div class="meta">27 Jul 2026 · Technical SEO</div>
-          <h3><a href="/writing/entity-seo-when-your-name-is-a-thing/">When your name is also a thing: entity SEO for an ambiguous name</a></h3>
-          <p>The Claytons that outrank me are towns, and page one of my own name query is their webcams. That's an entity-disambiguation problem, not a keyword problem — and it has a different fix.</p>
-        </div>
       </div>
 
       <div class="cta-row">
@@ -689,15 +610,15 @@
       <div class="faq">
         <details open>
           <summary>Who is Clayton Camera?</summary>
-          <p>Clayton Camera is a technical founder and software engineer based in Orlando, Florida. He builds AI systems, autonomous agents, trading research infrastructure, and full-stack commerce software, and runs several ventures in parallel — OrbitRoute, Practically Natty, KnockFiber, PeptiDex, and the BTC Intelligence Brain among them. He works across software, recruiting, commerce and marketing, including Ascent Vision, which he co-founded with Grayson Sorrentino.</p>
+          <p>Clayton Camera is a technical founder and software engineer based in Orlando, Florida. He co-founded Ascent Vision, a technology company, with Grayson Sorrentino; founded KnockFiber, an independent fiber-sales recruiting company, and OrbitRoute, a compute-routing platform; and is CTO &amp; Managing Partner at Practically Natty. He builds websites, software, AI systems and the operating tools behind them.</p>
         </details>
         <details>
           <summary>What does Clayton Camera build?</summary>
-          <p>Live software systems rather than prototypes: an orbital-compute routing platform, a peptide e-commerce operation with a custom operations plugin and affiliate engine, a bilingual multi-market fiber recruiting platform, a structured peptide research reference, a self-scoring public Bitcoin forecast ledger, and websites and lead systems for service businesses through Ascent Vision.</p>
+          <p>Working software, shipped live: an orbital-compute routing platform (OrbitRoute), a peptide e-commerce operation with a custom operations plugin and affiliate engine (Practically Natty), a bilingual fiber-sales recruiting platform (KnockFiber), a structured peptide research reference (PeptiDex), and websites, software and AI systems for businesses through Ascent Vision. Earlier research projects, including a self-scoring Bitcoin forecast ledger, are kept as an archive on the work page.</p>
         </details>
         <details>
           <summary>Is Clayton Camera available for client work?</summary>
-          <p>Yes. Engagements run through <a href="https://workwithclayton.com/" target="_blank" rel="noopener">workwithclayton.com</a> and start with a fixed-fee audit that puts a dollar figure next to every revenue leak and every piece of manual work worth automating, ranked by speed-to-cash. The audit credits toward the build if you move forward.</p>
+          <p>Yes. Client engagements run through <a href="https://workwithclayton.com/" target="_blank" rel="noopener">workwithclayton.com</a>: a 48-hour fixed-fee audit of one workflow, then an optional focused build sprint, with the audit fee credited toward the sprint.</p>
         </details>
         <details>
           <summary>Where is Clayton Camera based?</summary>
@@ -705,25 +626,23 @@
         </details>
         <details>
           <summary>Is this the same as the Clayton traffic cameras?</summary>
-          <p>No. Searching the exact phrase &ldquo;Clayton Camera&rdquo; also returns live traffic and weather cameras for the towns of Clayton in New York, North Carolina, and California, plus unrelated photography businesses. This site is about Clayton Camera the person — a software founder, not a webcam.</p>
+          <p>No. Searching the exact phrase “Clayton Camera” also returns live traffic and weather cameras for the towns of Clayton in New York, North Carolina and California, plus unrelated photography businesses. This site is about Clayton Camera the person — a software founder, not a webcam.</p>
         </details>
       </div>
-    </section>
 
-    <section class="block" id="contact">
-      <p class="section-label">Contact</p>
-      <h2>Get in touch</h2>
-      <p>For client work, start at <a href="https://workwithclayton.com/" target="_blank" rel="noopener">workwithclayton.com</a>. For recruiting partnerships, visit <a href="https://www.knockfiber.com/">KnockFiber</a>. For technical relationships and other inquiries, connect on <a href="https://www.linkedin.com/in/claytoncamera">LinkedIn</a>.</p>
-      <div class="cta-row">
-        <a class="btn-hire" href="https://workwithclayton.com/">Start a conversation <span aria-hidden="true">→</span></a>
-        <a class="btn-ghost" href="https://loopholemaxing.com/#shiplog" target="_blank" rel="noopener">Read the ship log <span aria-hidden="true">↗</span></a>
+      <div class="contact" id="contact">
+        <h3>Get in touch</h3>
+        <p>For client work, start at <a href="https://workwithclayton.com/" target="_blank" rel="noopener">workwithclayton.com</a>. For recruiting partnerships, visit <a href="https://www.knockfiber.com/" target="_blank" rel="noopener">KnockFiber</a>. For technical relationships and anything else, connect on <a href="https://www.linkedin.com/in/claytoncamera" target="_blank" rel="noopener">LinkedIn</a>.</p>
+        <div class="cta-row">
+          <a class="btn-hire" href="https://workwithclayton.com/">Start a conversation <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <div class="fl"><span class="fl-i">Clayton Camera — Orlando, FL — 2026 &nbsp;|&nbsp;</span> <span class="fl-i"><a href="/writing/">Writing</a> &nbsp;|&nbsp;</span> <span class="fl-i"><a href="https://loopholemaxing.com/" target="_blank" rel="noopener">Loopholemaxing</a> &nbsp;|&nbsp;</span> <span class="fl-i"><a href="https://workwithclayton.com/" target="_blank" rel="noopener">Work With Clayton</a> &nbsp;|&nbsp;</span> <span class="fl-i"><a href="https://github.com/claytoncamera" target="_blank" rel="noopener">GitHub</a></span></div>
+    <div class="fl"><span class="fl-i">Clayton Camera — Orlando, FL — 2026 &nbsp;|&nbsp;</span> <span class="fl-i"><a href="/work/">Work</a> &nbsp;|&nbsp;</span> <span class="fl-i"><a href="/about/">About</a> &nbsp;|&nbsp;</span> <span class="fl-i"><a href="/writing/">Writing</a> &nbsp;|&nbsp;</span> <span class="fl-i"><a href="https://loopholemaxing.com/" target="_blank" rel="noopener">Loopholemaxing</a> &nbsp;|&nbsp;</span> <span class="fl-i"><a href="https://workwithclayton.com/" target="_blank" rel="noopener">Work With Clayton</a> &nbsp;|&nbsp;</span> <span class="fl-i"><a href="https://github.com/claytoncamera" target="_blank" rel="noopener">GitHub</a></span></div>
     <div class="footer-tagline">Research. Analyze. Execute.</div>
     <a class="to-top" href="#main">Back to top <span aria-hidden="true">↑</span></a>
   </footer>

@@ -162,7 +162,7 @@ td code { overflow-wrap: anywhere; }
 .post-end a:hover { border-color: var(--brand-1); }
 
 /* 404 page: the three ways back */
-.listing .nf-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.listing .nf-links, .page .nf-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
 .nf-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--border-light); border-radius: 10px; color: var(--text-primary); text-decoration: none; font-weight: 600; transition: border-color 150ms ease; }
 .nf-links a:hover { border-color: var(--brand-1); }
 
@@ -239,4 +239,69 @@ td code { overflow-wrap: anywhere; }
   html { scroll-behavior: auto; }
   .post-list li, .post-list li:hover { transition: none; transform: none; }
   .nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after { transition: none; }
+}
+
+/* ===================================================================
+   /about/ and /work/ — the profile pages. Cards, tags and buttons copy
+   the homepage's inline rules (same tokens, same 14px card radius);
+   if you change one copy, change the other.
+   =================================================================== */
+.wrap.wide { max-width: 880px; }
+.page { padding: 18px 0 40px; }
+.page p { color: var(--text-secondary); max-width: 70ch; margin-bottom: 16px; }
+.page p strong { color: var(--text-primary); font-weight: 600; }
+.page .lede { font-size: 1.1rem; }
+.page h2 { margin-top: 48px; }
+.page .section-note { font-size: 0.95rem; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; margin: 22px 0 8px; }
+.cards > .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.card { position: relative; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; transition: border-color 200ms ease, transform 200ms ease; }
+.card:hover { border-color: var(--border-light); transform: translateY(-2px); }
+.card .meta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); font-weight: 600; margin-bottom: 10px; }
+.card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+/* The title link stretches over the whole card, so the card is the tap target. */
+.card h3 a { display: inline-block; padding: 3px 0; color: var(--text-primary); text-decoration: none; }
+.card h3 a::before { content: ''; position: absolute; inset: 0; border-radius: 14px; }
+.card h3 a[target="_blank"]::after { content: '\2197'; content: '\2197' / ''; margin-left: 6px; font-size: 0.8em; color: var(--text-muted); }
+.card h3 a:hover { color: var(--brand-3); }
+.card p { font-size: 0.95rem; margin: 0; }
+.card p + p { margin-top: 10px; }
+.card p a, .card .card-links a { position: relative; z-index: 1; }
+.card .card-links { display: flex; flex-wrap: wrap; gap: 0 18px; margin-top: 8px; font-size: 0.9rem; }
+.card .card-links a { display: inline-flex; align-items: center; min-height: 44px; }
+.card:has(a:focus-visible) { border-color: var(--brand-3); }
+@supports not selector(:has(*)) { .card:focus-within { border-color: var(--brand-3); } }
+
+/* Quick facts on /about/: label column + value column, one row per fact */
+.facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 22px; margin: 22px 0 8px; padding: 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; }
+.facts dt { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); padding-top: 3px; }
+.facts dd { color: var(--text-primary); }
+
+.timeline { list-style: none; margin: 22px 0 8px; padding: 0 0 0 4px; }
+.timeline li { position: relative; padding: 0 0 22px 26px; border-left: 2px solid var(--border-light); color: var(--text-secondary); }
+.timeline li:last-child { padding-bottom: 4px; }
+.timeline li::before { content: ''; position: absolute; left: -6px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--bg-primary); border: 2px solid var(--brand-3); }
+.timeline .when { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-3); margin-bottom: 2px; }
+.timeline strong { color: var(--text-primary); font-weight: 600; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.tag { background: var(--bg-card-2); border: 1px solid var(--border); color: var(--text-secondary); padding: 6px 12px; border-radius: 8px; font-size: 0.83rem; font-weight: 500; }
+
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.cta-row a { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 48px; text-align: center; }
+.btn-hire { background: var(--grad-brand); color: #07070c; text-decoration: none; font-weight: 700; padding: 12px 22px; border-radius: 10px; font-size: 0.95rem; }
+.btn-hire:hover { filter: brightness(1.08); }
+.btn-ghost { border: 1px solid var(--border-light); color: var(--text-primary); text-decoration: none; font-weight: 600; padding: 12px 22px; border-radius: 10px; font-size: 0.95rem; }
+.btn-ghost:hover { border-color: var(--brand-1); }
+
+@media (max-width: 620px) {
+  .card .meta, .facts dt, .timeline .when { font-size: 0.8125rem; letter-spacing: 0.04em; }
+  .card p { font-size: 1rem; }
+  .facts { grid-template-columns: 1fr; gap: 2px; }
+  .facts dd + dt { margin-top: 12px; }
+  .cta-row { flex-direction: column; align-items: stretch; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .card:hover { transition: none; transform: none; }
 }

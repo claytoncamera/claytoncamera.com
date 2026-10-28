@@ -29,6 +29,8 @@ DOMAIN="https://claytoncamera.com"
 # to sitemap.xml — the two are cross-checked in both directions below.
 PAGES=(
   "/"
+  "/about/"
+  "/work/"
   "/writing/"
   "/writing/building-a-search-program-for-an-online-coach/"
   "/writing/four-times-my-verification-lied/"
@@ -261,8 +263,12 @@ PY
 echo "-- internal linking --"
 grep -q 'href="/writing/"' index.html \
   && ok "homepage links the writing hub" || fail "homepage does not link /writing/"
+for hub in /about/ /work/; do
+  grep -q "href=\"${hub}\"" index.html \
+    && ok "homepage links ${hub}" || fail "homepage does not link ${hub} — it would be an orphan"
+done
 for p in "${PAGES[@]}"; do
-  case "$p" in /|/writing/) continue;; esac
+  case "$p" in /|/about/|/work/|/writing/) continue;; esac
   grep -q "href=\"${p}\"" writing/index.html \
     && ok "writing hub links ${p}" || fail "${p} is an orphan — not linked from /writing/"
 done
