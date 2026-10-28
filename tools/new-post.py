@@ -239,8 +239,9 @@ TEMPLATE = """<!DOCTYPE html>
     <div class="wrap">
       <a class="logo" href="/">Clayton Camera</a>
       <nav id="primary-nav" aria-label="Primary"><ul class="nav-links">
-        <li><a href="/writing/" aria-current="true">Writing</a></li>
-        <li class="hide-sm"><a href="https://loopholemaxing.com/#creations">Creations</a></li>
+        <li><a href="/work/">Work</a></li>
+        <li class="hide-sm"><a href="/about/">About</a></li>
+        <li class="hide-sm"><a href="/writing/" aria-current="true">Writing</a></li>
         <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
       </ul></nav>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
@@ -270,7 +271,7 @@ TEMPLATE = """<!DOCTYPE html>
   </main>
 
   <footer class="site-footer">
-    <p><span class="fl-i"><a href="/">Clayton Camera</a> ·</span> <span class="fl-i"><a href="/writing/">Writing</a> ·</span> <span class="fl-i"><a href="https://workwithclayton.com/">Work with Clayton</a> ·</span> <span class="fl-i"><a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> ·</span> <span class="fl-i"><a href="https://github.com/claytoncamera" rel="me">GitHub</a></span></p>
+    <p><span class="fl-i"><a href="/">Clayton Camera</a> ·</span> <span class="fl-i"><a href="/work/">Work</a> ·</span> <span class="fl-i"><a href="/about/">About</a> ·</span> <span class="fl-i"><a href="/writing/">Writing</a> ·</span> <span class="fl-i"><a href="https://workwithclayton.com/">Work with Clayton</a> ·</span> <span class="fl-i"><a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> ·</span> <span class="fl-i"><a href="https://github.com/claytoncamera" rel="me">GitHub</a></span></p>
     <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
     <a class="to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
   </footer>
@@ -448,8 +449,14 @@ def _add_to_homepage(slug, title, lede, eyebrow, date):
     grid = s.find('<div class="ventures">', idx)
     insert = s.find("\n", grid) + 1
     s = s[:insert] + card + s[insert:]
+    # The homepage shows the newest three; /writing/ lists every post, so a
+    # card dropped here is never an orphan.
+    end = s.find("\n      </div>\n", insert)
+    cards = re.findall(r'        <div class="venture">\n.*?\n        </div>\n', s[insert:end], re.S)
+    if len(cards) > 3:
+        s = s[:insert] + "".join(cards[:3]) + s[end + 1:]
     p.write_text(s, encoding="utf-8")
-    print("homepage: added")
+    print("homepage: added (newest three kept)")
 
 
 def _add_to_guard(path: str):

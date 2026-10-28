@@ -41,7 +41,10 @@ local scan before shipping a change to the entity wiring.
 
 ## Maintenance
 
-- New page → add a `<url>` entry to `sitemap.xml`.
+- New page → add a `<url>` entry to `sitemap.xml` and to `PAGES` in `tests/seo-scan.sh`.
+- Pages: `/` (short pitch, owns the Person), `/about/` (long bio), `/work/` (every venture and
+  project with its status, archive included), `/writing/`. A status change goes on `/work/`, the
+  homepage and the `/work/` ItemList in the same commit.
 - Keep the name / role / location strings identical to those in the brain runbook
   (`01_projects/personal-brand/NAME_SERP_RUNBOOK.md`). Consistency across citations *is* the
   entity-merging signal; varied phrasing prevents the merge.

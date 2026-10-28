@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ================================================================
+       /about/ — the long-form bio. The homepage stays a short pitch;
+       the detail lives here.
+
+       Entity rules (see /index.html): this page REFERENCES the Person
+       @id and never redefines it — no name/description/image/sameAs on
+       a #person node here. Its <h1> is "About Clayton Camera", never the
+       bare name: only the homepage may claim that (tests/seo-scan.sh).
+       Facts must match the brain's public record; dates that are not
+       certain are left out rather than guessed.
+       ================================================================ -->
+
+  <title>About Clayton Camera — Technical Founder in Orlando, FL</title>
+  <meta name="description" content="Clayton Camera is a technical founder and software engineer in Orlando, Florida. His ventures, timeline, how he works and the tools he builds with.">
+  <link rel="canonical" href="https://claytoncamera.com/about/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="About Clayton Camera">
+  <meta property="og:description" content="Technical founder and software engineer in Orlando, Florida: ventures, timeline, how he works and the tools he builds with.">
+  <meta property="og:url" content="https://claytoncamera.com/about/">
+  <meta property="og:site_name" content="Clayton Camera">
+  <meta property="og:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="About Clayton Camera">
+  <meta name="twitter:description" content="Technical founder and software engineer in Orlando, Florida: ventures, timeline and how he works.">
+  <meta name="twitter:image" content="https://claytoncamera.com/assets/clayton-camera.jpg">
+  <meta name="theme-color" content="#08080d">
+  <link rel="icon" href="/assets/favicon-64.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <script>document.documentElement.className += ' js';</script>
+  <script src="/assets/nav.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": "https://claytoncamera.com/about/#webpage",
+        "url": "https://claytoncamera.com/about/",
+        "name": "About Clayton Camera",
+        "description": "Clayton Camera is a technical founder and software engineer in Orlando, Florida. His ventures, timeline, how he works and the tools he builds with.",
+        "inLanguage": "en-US",
+        "isPartOf": { "@id": "https://claytoncamera.com/#website" },
+        "about": { "@id": "https://claytoncamera.com/#person" },
+        "mainEntity": { "@id": "https://claytoncamera.com/#person" },
+        "breadcrumb": { "@id": "https://claytoncamera.com/about/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://claytoncamera.com/about/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Clayton Camera", "item": "https://claytoncamera.com/" },
+          { "@type": "ListItem", "position": 2, "name": "About" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/article.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg-grid"></div>
+
+  <header class="top-header">
+    <div class="wrap">
+      <a class="logo" href="/">Clayton Camera</a>
+      <nav id="primary-nav" aria-label="Primary"><ul class="nav-links">
+        <li><a href="/work/">Work</a></li>
+        <li class="hide-sm"><a href="/about/" aria-current="page">About</a></li>
+        <li class="hide-sm"><a href="/writing/">Writing</a></li>
+        <li><a class="nav-cta" href="https://workwithclayton.com/">Work With Clayton</a></li>
+      </ul></nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><span class="nav-toggle-bars" aria-hidden="true"></span></button>
+    </div>
+  </header>
+
+  <main class="wrap" id="main" tabindex="-1">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">→</span> <span aria-current="page">About</span></nav>
+
+    <div class="page">
+      <p class="eyebrow">About</p>
+      <h1>About Clayton Camera</h1>
+      <p class="lede">Clayton Camera is a technical founder and software engineer in Orlando, Florida. He builds websites, software, AI systems and the operating tools that run the businesses behind them, across ventures he founded or helps lead.</p>
+
+      <dl class="facts">
+        <dt>Based in</dt>
+        <dd>Orlando, Florida · Eastern time</dd>
+        <dt>Works on</dt>
+        <dd>Websites, software, AI systems and business operations</dd>
+        <dt>Ventures</dt>
+        <dd>Ascent Vision · KnockFiber · OrbitRoute · Practically Natty · PeptiDex</dd>
+        <dt>Education</dt>
+        <dd>Florida State University, B.S. in Finance (2024–2028)</dd>
+        <dt>Client work</dt>
+        <dd><a href="https://workwithclayton.com/">workwithclayton.com</a></dd>
+      </dl>
+
+      <section aria-labelledby="what">
+        <h2 id="what">What I work on</h2>
+        <p>Most of my work sits where a business meets its software: the website a customer finds, the system that answers them, and the internal tools that keep orders, recruits or workloads moving. I design the architecture, write the code, connect the integrations and stay with the product after launch.</p>
+        <p>Right now that means four ventures. At <a href="https://ascentvision.org/">Ascent Vision</a>, which I co-founded with Grayson Sorrentino, we build websites, custom software and AI systems for businesses. <a href="https://www.knockfiber.com/">KnockFiber</a> recruits door-to-door fiber sales reps, crews and agencies for partner sales organizations. <a href="https://www.orbitroute.ai">OrbitRoute</a> models where compute workloads should run across terrestrial cloud and potential orbital capacity. At <a href="https://practicallynatty.com">Practically Natty</a> I’m CTO &amp; managing partner, responsible for the store’s software and operations tooling. Each one, with its status, is on the <a href="/work/">work page</a>.</p>
+      </section>
+
+      <section aria-labelledby="timeline">
+        <h2 id="timeline">Timeline</h2>
+        <ol class="timeline">
+          <li><span class="when">2024</span> Began a <strong>B.S. in Finance at Florida State University</strong>.</li>
+          <li><span class="when">March 2026</span> Founded <strong>OrbitRoute</strong>, a compute-routing platform that compares terrestrial cloud with modeled orbital capacity.</li>
+          <li><span class="when">June 2026</span> Launched <strong>KnockFiber</strong>’s recruiting platform for door-to-door fiber sales, in English and Spanish. KnockFiber LLC followed in September.</li>
+          <li><span class="when">July 2026</span> Launched this site and began <a href="/writing/">writing</a> about shipping live systems.</li>
+          <li><span class="when">October 2026</span> Co-founded <strong>Ascent Vision</strong> with Grayson Sorrentino, and delivered the <a href="https://diogofit.com/">Diogo Fitness</a> website through it.</li>
+        </ol>
+      </section>
+
+      <section aria-labelledby="how">
+        <h2 id="how">How I work</h2>
+        <p><strong>Ship live, then prove it.</strong> Public products have links you can inspect. When an audit found a pricing constant on OrbitRoute with the wrong sign, the fix wasn’t softer wording — it was correcting the number and publishing a comparison that recommends the competitor.</p>
+        <p><strong>Make the result measurable.</strong> Define what success means before building. Keep source timestamps, clear ownership and useful reporting close to the workflow so the team can judge what improved.</p>
+        <p><strong>Honest instruments.</strong> A forecast tool that can’t beat a coin flip should say so. Earnings claims stay out of recruiting feeds. That discipline is enforced by guard tests in CI, not by good intentions.</p>
+      </section>
+
+      <section aria-labelledby="stack">
+        <h2 id="stack">Tools and stack</h2>
+        <p class="section-note">What I build with day to day:</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">TypeScript / JavaScript</span>
+          <span class="tag">PHP</span>
+          <span class="tag">SQL / PostgreSQL</span>
+          <span class="tag">React</span>
+          <span class="tag">Node / Express</span>
+          <span class="tag">WordPress / WooCommerce</span>
+          <span class="tag">Railway</span>
+          <span class="tag">Vercel</span>
+          <span class="tag">AI agents &amp; LLM tooling</span>
+        </div>
+      </section>
+
+      <section aria-labelledby="elsewhere">
+        <h2 id="elsewhere">Elsewhere</h2>
+        <p class="nf-links">
+          <a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a>
+          <a href="https://github.com/claytoncamera" rel="me">GitHub</a>
+          <a href="https://dev.to/claytoncamera" rel="me">dev.to</a>
+          <a href="https://www.instagram.com/clayton_camera/" rel="me">Instagram</a>
+          <a href="https://loopholemaxing.com/" rel="me">Loopholemaxing</a>
+        </p>
+      </section>
+
+      <div class="cta-row">
+        <a class="btn-hire" href="https://workwithclayton.com/">Work with Clayton <span aria-hidden="true">→</span></a>
+        <a class="btn-ghost" href="/work/">See the work <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><span class="fl-i"><a href="/">Clayton Camera</a> ·</span> <span class="fl-i"><a href="/work/">Work</a> ·</span> <span class="fl-i"><a href="/about/">About</a> ·</span> <span class="fl-i"><a href="/writing/">Writing</a> ·</span> <span class="fl-i"><a href="https://workwithclayton.com/">Work with Clayton</a> ·</span> <span class="fl-i"><a href="https://www.linkedin.com/in/claytoncamera" rel="me">LinkedIn</a> ·</span> <span class="fl-i"><a href="https://github.com/claytoncamera" rel="me">GitHub</a></span></p>
+    <p class="footer-tagline">Orlando, Florida · Building live systems, not slide decks</p>
+    <a class="to-top" href="#main">Back to top <span aria-hidden="true">↑</span></a>
+  </footer>
+
+  <script async src="https://analytics-hub-production-9e6b.up.railway.app/track.js?v=20260616a" data-site="claytoncamera"></script>
+</body>
+</html>
