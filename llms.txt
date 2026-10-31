@@ -1,0 +1,43 @@
+# Clayton Camera
+
+> Clayton Camera is a person: a technical founder and software engineer based in Orlando, Florida (Eastern time). This site, claytoncamera.com, is the canonical home of that person entity (schema.org Person @id https://claytoncamera.com/#person). It is not about the traffic or weather cameras in the towns of Clayton, New York; Clayton, North Carolina; or Clayton, California, nor any photography business of a similar name.
+
+Key facts
+- Co-founder of Ascent Vision, a technology company (websites, software and AI systems for businesses), with Grayson Sorrentino.
+- Founder of KnockFiber (KnockFiber LLC), an independent recruiting company for door-to-door fiber sales reps, crews and agencies, with English and Spanish application paths.
+- Founder of OrbitRoute, an orbital-compute routing platform.
+- CTO & Managing Partner at Practically Natty, a peptide e-commerce operation with a custom operations plugin and affiliate engine.
+- Studying for a B.S. in Finance at Florida State University (2024–2028).
+- Client engagements run through https://workwithclayton.com/ (a fixed-fee audit of one workflow, then an optional build sprint).
+
+## Pages
+- [Home](https://claytoncamera.com/): who Clayton Camera is, the four ventures, selected work, newest writing, FAQ and contact.
+- [About](https://claytoncamera.com/about/): bio, quick facts, timeline, how he works, stack, profiles.
+- [Work](https://claytoncamera.com/work/): ventures, products and client sites, plus an archive of earlier research projects.
+- [Writing](https://claytoncamera.com/writing/): technical write-ups on entity SEO, AI agents in production and shipping live systems solo.
+
+## Writing
+- [Building a search program for an online coach from public data](https://claytoncamera.com/writing/building-a-search-program-for-an-online-coach/): how Ascent Vision built the site and search program for an online fitness coach (Diogo Fitness).
+- [Four times my own verification lied to me in five days](https://claytoncamera.com/writing/four-times-my-verification-lied/): checks that report success in the dimension you watch while being wrong in one you do not.
+- [I pointed 30 agents at my own websites and told them to prove each other wrong](https://claytoncamera.com/writing/30-agents-audit-my-own-network/): auditing a five-domain person entity with adversarial agents.
+- [The dry run that caught 25 fabricated reply threads](https://claytoncamera.com/writing/dry-run-caught-25-fake-reply-threads/): an outreach queue about to send cold emails with a "Re:" prefix, and what the dry run had to print.
+- [When your name is also a thing: entity SEO for an ambiguous name](https://claytoncamera.com/writing/entity-seo-when-your-name-is-a-thing/): the entity-disambiguation playbook behind this site.
+
+## Ventures and work (separate sites)
+- Ascent Vision: https://ascentvision.org/
+- KnockFiber: https://www.knockfiber.com/
+- OrbitRoute: https://www.orbitroute.ai
+- Practically Natty: https://practicallynatty.com
+- PeptiDex (structured peptide research reference): https://www.thepeptidex.net
+- Diogo Fitness (client site, built through Ascent Vision): https://diogofit.com/
+- Loopholemaxing (portfolio and ship log): https://loopholemaxing.com/
+
+## Profiles
+- LinkedIn: https://www.linkedin.com/in/claytoncamera
+- GitHub: https://github.com/claytoncamera
+- DEV: https://dev.to/claytoncamera
+- Instagram: https://www.instagram.com/clayton_camera/
+
+## Optional
+- Sitemap: https://claytoncamera.com/sitemap.xml
+- Share image (1200×630): https://claytoncamera.com/assets/share-1200x630.jpg

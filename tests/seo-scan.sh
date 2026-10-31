@@ -273,6 +273,57 @@ for p in "${PAGES[@]}"; do
     && ok "writing hub links ${p}" || fail "${p} is an orphan — not linked from /writing/"
 done
 
+# ── 7. share surface, answer-engine file, identity-only sameAs ──────────
+# The 1200×630 share image is what every link preview shows; llms.txt is what
+# answer engines read first; sameAs must name the person's own profiles only —
+# venture domains belong on their Organization nodes (founder/employee → #person),
+# or the person merges with his companies.
+echo "-- share image, llms.txt, sameAs --"
+if [ -f assets/share-1200x630.jpg ] && [ "$(wc -c < assets/share-1200x630.jpg)" -gt 10000 ]; then
+  ok "share image present (assets/share-1200x630.jpg)"
+else
+  fail "assets/share-1200x630.jpg missing or empty — every og:image points at it"
+fi
+for p in "${PAGES[@]}"; do
+  f=".${p}index.html"
+  grep -q "property=\"og:image\" content=\"${DOMAIN}/assets/share-1200x630.jpg\"" "$f" \
+    && grep -q 'name="twitter:card" content="summary_large_image"' "$f" \
+    && ok "share tags ok: ${p}" || fail "og:image / twitter:card not on the share image: ${p}"
+done
+if [ ! -f llms.txt ]; then
+  fail "llms.txt missing"
+else
+  for p in "${PAGES[@]}"; do
+    grep -q "${DOMAIN}${p}" llms.txt && ok "llms.txt lists ${p}" || fail "llms.txt does not list ${p}"
+  done
+fi
+python3 - <<'PY' || FAILED=1
+import json, re, sys
+html = open('index.html', encoding='utf-8').read()
+VENTURE_HOSTS = ("orbitroute.ai", "practicallynatty.com", "thepeptidex.net", "knockfiber.com",
+                 "loopholemaxing.com", "ascentvision.org", "diogofit.com")
+bad = 0
+for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+    try:
+        data = json.loads(block)
+    except Exception:
+        continue
+    for node in data.get("@graph", []) if isinstance(data, dict) else []:
+        if node.get("@type") == "Person" and node.get("@id") == "https://claytoncamera.com/#person":
+            same = node.get("sameAs", [])
+            strays = [u for u in same if any(h in u for h in VENTURE_HOSTS)]
+            if strays:
+                print(f"  ❌ Person.sameAs carries venture domains {strays} — they belong on the Organization nodes"); bad = 1
+            else:
+                print(f"  ✅ Person.sameAs is identity profiles only ({len(same)})")
+            alum = node.get("alumniOf") or {}
+            if alum.get("name") == "Florida State University":
+                print("  ✅ alumniOf Florida State University present")
+            else:
+                print("  ❌ alumniOf Florida State University missing from the Person"); bad = 1
+sys.exit(bad)
+PY
+
 echo
 if [ "$FAILED" = "0" ]; then
   echo "ALL CHECKS PASSED"
