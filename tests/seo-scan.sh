@@ -324,6 +324,26 @@ for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', h
 sys.exit(bad)
 PY
 
+# ── 8. self-hosted fonts ────────────────────────────────────────────────
+# Inter + Space Grotesk are served from /assets/fonts/ (2026-10-31). A Google
+# Fonts tag creeping back in (the old template, a pasted head) re-adds two
+# third-party requests and a render-blocking stylesheet.
+echo "-- self-hosted fonts --"
+for ff in inter-latin inter-latin-ext space-grotesk-latin space-grotesk-latin-ext; do
+  f="assets/fonts/${ff}.woff2"
+  if [ -f "$f" ] && [ "$(head -c 4 "$f")" = "wOF2" ]; then ok "font file ok: ${ff}.woff2"; else fail "${f} missing or not woff2"; fi
+done
+[ -f assets/fonts.css ] && ok "assets/fonts.css present" || fail "assets/fonts.css missing"
+for p in "${PAGES[@]}"; do
+  f=".${p}index.html"
+  grep -q 'rel="stylesheet" href="/assets/fonts.css"' "$f" && ok "fonts.css linked: ${p}" || fail "fonts.css not linked on ${p}"
+done
+if grep -rqE 'fonts\.g(oogleapis|static)\.com' --include='*.html' --include='*.css' --include='*.py' . ; then
+  fail "a Google Fonts host is referenced: $(grep -rlE 'fonts\.g(oogleapis|static)\.com' --include='*.html' --include='*.css' --include='*.py' . | tr '\n' ' ')"
+else
+  ok "no Google Fonts hosts referenced (fonts are self-hosted)"
+fi
+
 echo
 if [ "$FAILED" = "0" ]; then
   echo "ALL CHECKS PASSED"
