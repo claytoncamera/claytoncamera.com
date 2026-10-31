@@ -207,13 +207,16 @@ TEMPLATE = """<!DOCTYPE html>
   <meta property="og:description" content="{desc}">
   <meta property="og:url" content="{url}">
   <meta property="og:site_name" content="Clayton Camera">
-  <meta property="og:image" content="{base}/assets/clayton-camera.jpg">
+  <meta property="og:image" content="{base}/assets/share-1200x630.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Clayton Camera — technical founder and systems builder, Orlando, Florida">
   <meta property="article:author" content="Clayton Camera">
   <meta property="article:published_time" content="{date}">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{title_esc}">
   <meta name="twitter:description" content="{desc}">
-  <meta name="twitter:image" content="{base}/assets/clayton-camera.jpg">
+  <meta name="twitter:image" content="{base}/assets/share-1200x630.jpg">
   <meta name="theme-color" content="#08080d">
   <link rel="icon" href="/assets/favicon-64.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
